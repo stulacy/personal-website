@@ -7,7 +7,7 @@ math = false
 publication = "Information and Processing in Cells and Tissues"
 title = "Evolving Ensembles: What Can We Learn from Biological Mutualisms?"
 
-publication_types = ["2"]
+publication_types = ["6"]
 selected = false
 +++
 

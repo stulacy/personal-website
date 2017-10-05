@@ -32,5 +32,5 @@ weight = 5
 
 # Biography
 
-I'm a Research Fellow in the Epidemiology and Cancer Statistics Group at the University of York. My research is focused on applying machine learning techniques to health informatics; I'm currently working on developing complex predictive survival and multi-state models of haematological malignancies. I have an interest in software development, and in particular developing statistical tools such as packages for R. I also dabble in sports statistics, such as predicting the outcome of matches.
+I'm a Research Fellow in the Epidemiology and Cancer Statistics Group at the University of York. My research is focused on applying machine learning techniques to health informatics. I'm currently working on developing complex predictive survival and multi-state models of haematological malignancies. I have an interest in software development, and in particular developing statistical tools such as packages for R. I also dabble in sports statistics.
 
