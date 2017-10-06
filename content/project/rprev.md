@@ -9,7 +9,7 @@ title = "rprev"
 summary = "An R package for estimating disease prevalence from registry data"
 
 # Optional image to display on homepage (relative to `static/img/` folder).
-image_preview = "boards.jpg"
+image_preview = "rprev.png"
 
 # Tags: can be used for filtering projects.
 tags = ["R"]

@@ -9,13 +9,13 @@ title = "A Multi-State Modelling Shiny app"
 summary = "A web app built in Shiny to visualise Multi-State Models"
 
 # Optional image to display on homepage (relative to `static/img/` folder).
-image_preview = "boards.jpg"
+image_preview = "msmshinyapp/stateprobabilities.png"
 
 # Tags: can be used for filtering projects.
 tags = ["R"]
 
 # Optional external URL for project (replaces project detail page).
-external_link = "https://cran.r-project.org/package=rprev"
+external_link = "https://stulacy.shinyapps.io/msm-shiny/"
 
 # Does the project detail page use math formatting?
 math = false
