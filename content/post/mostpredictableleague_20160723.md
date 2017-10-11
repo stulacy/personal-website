@@ -12,7 +12,7 @@ others. La Liga certainly has a reputation as being dull and
 predictable, although this is due to the sheer dominance of Barcelona
 and Real Madrid in recent years. I've increased my database of football
 matches in order to improve [my football prediction
-bot](http://stuartlacy.co.uk/29052016-endseason) this summer, and so now
+bot](http://stuartlacy.co.uk/2016/05/29/predictaball-end-of-season-review-for-2015-2016/) this summer, and so now
 have sufficient data to investigate. In this analysis my measure of
 *predictability* is whether the favourite according to the bookies won
 the match, so in essence I'm measuring the number of **upsets**. I have
@@ -122,7 +122,7 @@ mean(res_clean$correct)
 
 This is lower than I'd expected, considering that in the [last two
 seasons Predictaball has got 48% and
-43%](http://stuartlacy.co.uk/29052016-endseason) I expected the bookies
+43%](http://stuartlacy.co.uk/2016/05/29/predictaball-end-of-season-review-for-2015-2016/) I expected the bookies
 to be more accurate. It goes to show that football prediction is
 extremely challenging even for the professionals, although it is
 important to bear in mind that a bookies objective isn't to maximise

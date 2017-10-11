@@ -6,7 +6,7 @@ title = "How to correctly use cross-validation in predictive modelling"
 math = false
 +++
 
-While writing the [previous post](http://stuartlacy.co.uk/2016/01/26/twocultres) on the two 'cultures' of statistical modeling for prediction and inference, I realised that I was glossing over an extremely important area of predictive modeling, and judging by frequent [StackExchange](http://stats.stackexchange.com/) posts, one that is often misunderstood. As you will have summarised from the title, I'm talking about _cross-validation_.
+While writing the [previous post](http://stuartlacy.co.uk/2016/01/26/appreciating-the-distinction-between-explanatory-and-predictive-modelling/) on the two 'cultures' of statistical modeling for prediction and inference, I realised that I was glossing over an extremely important area of predictive modeling, and judging by frequent [StackExchange](http://stats.stackexchange.com/) posts, one that is often misunderstood. As you will have summarised from the title, I'm talking about _cross-validation_.
 
 If done correctly, cross-validation (CV) will provide a thorough assessment of a predictive model providing you with: unbiased, publishable results; a means of selecting the final model instance to use for your application; and an accurate estimate of the model's performance on future data. However, if done badly it can be prove worse than not using it at all. For instance, you may have determined your model to correctly mark 95% of all received spam emails, however, in practice it actually only predicts 90%, leading to complaints from your customers.
 

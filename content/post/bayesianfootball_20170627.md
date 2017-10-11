@@ -128,9 +128,9 @@ underestimated their chances.
 The high accuracy on the Premier League (62%) looks very promising for
 the fully Bayesian approach. This is a massive improvement on the
 previous two seasons of [43% (Naive
-Bayes)](http://stuartlacy.co.uk/2016/05/29/endseason) and [48%
+Bayes)](http://stuartlacy.co.uk/2016/05/29/predictaball-end-of-season-review-for-2015-2016/) and [48%
 (Evolutionary Algorithm
-classifier)](http://stuartlacy.co.uk/2015/10/27/predictaballendseason),
+classifier)](http://stuartlacy.co.uk/2015/10/26/predictaball-end-of-season-review/),
 indicating that either the league was more considerably more predictable
 this season or that the Bayesian framework is more adapt at identifying
 trends in the data. I imagine it's a combination of both factors. The
