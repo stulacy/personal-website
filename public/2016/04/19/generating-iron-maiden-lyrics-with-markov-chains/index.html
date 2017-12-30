@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en-uk">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme" content="hugo-academic">
+  <meta name="generator" content="Hugo 0.31.1" />
+  <meta name="author" content="Stuart Lacy">
+  <meta name="description" content="Research Fellow">
+
+  
+  <link rel="alternate" hreflang="en-uk" href="/2016/04/19/generating-iron-maiden-lyrics-with-markov-chains/">
+
+  
+  
+
+
+  
+
+  
+  
+  
+  
+    
+  
+  
+    
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha512-6MXa8B6uaO18Hid6blRMetEIoPqHf7Ux1tnyIQdpt9qI5OACx7C+O3IVTr98vwGnlcg0LOLa02i9Y1HpVhlfiw==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.1/css/academicons.min.css" integrity="sha512-NThgw3XKQ1absAahW6to7Ey42uycrVvfNfyjqcFNgCmOCQ5AR4AO0SiXrN+8ZtYeappp56lk1WtvjVmEa+VR6A==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous">
+  
+  
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700%7cMerriweather%7cRoboto&#43;Mono">
+  
+  <link rel="stylesheet" href="/styles.css">
+  
+
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-110705129-1', 'auto');
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="//www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="/2016/04/19/generating-iron-maiden-lyrics-with-markov-chains/">
+
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="twitter:site" content="@stulacy">
+  <meta property="twitter:creator" content="@stulacy">
+  
+  <meta property="og:site_name" content="Stuart Lacy">
+  <meta property="og:url" content="/2016/04/19/generating-iron-maiden-lyrics-with-markov-chains/">
+  <meta property="og:title" content="Generating Iron Maiden lyrics with Markov chains | Stuart Lacy">
+  <meta property="og:description" content="">
+  <meta property="og:locale" content="en-uk">
+  
+  <meta property="article:published_time" content="2016-04-19T00:00:00&#43;02:00">
+  
+  <meta property="article:modified_time" content="2016-04-19T00:00:00&#43;02:00">
+  
+
+  
+
+  <title>Generating Iron Maiden lyrics with Markov chains | Stuart Lacy</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+      <a class="navbar-brand" href="/">Stuart Lacy</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#about">
+            
+            <span>Home</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/post">
+            
+            <span>Blog</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/publication">
+            
+            <span>Publications</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#projects">
+            
+            <span>Projects</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#contact">
+            
+            <span>Contact</span>
+            
+          </a>
+        </li>
+
+        
+        
+      
+
+      
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+  <div class="article-container">
+    <div class="article-inner">
+      <h1 itemprop="name">Generating Iron Maiden lyrics with Markov chains</h1>
+
+      
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2016-04-19 00:00:00 &#43;0200 CEST" itemprop="datePublished">
+      Apr 19, 2016
+    </time>
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    9 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/2016/04/19/generating-iron-maiden-lyrics-with-markov-chains/#disqus_thread"></a>
+  
+
+  
+
+  
+  
+
+  
+
+</div>
+
+
+      <div class="article-style" itemprop="articleBody">
+        
+
+<p>I&rsquo;ve been wanting to play with Markov Chains for a while now, and now that I&rsquo;m starting to get into Bayesian analysis I&rsquo;m going to need to use them more often. One fun use of them is to generate text which can (at a stretch) pass as written by a drunk person. For nice examples of them in action have a look at <a href="http://joshmillard.com/garkov/" target="_blank">Garkov (generated Garfield strips)</a> or even an entire subreddit generated with them <a href="https://www.reddit.com/r/subredditsimulator" target="_blank">reddit.com/r/subredditsimulator</a>. The later is particularly cool as it&rsquo;s got a large text source to build from so it can result in coherent sentences, such as <em>MRW someone asks me how much she misses me and doesn&rsquo;t show any sign of stopping</em> or <em>Jeb Bush wants Margaret Thatcher statue measuring 250ft planned at Kent University to change last name to Turbo Suit</em>.</p>
+
+<p>In this post I provide a very brief introduction to text generation using markov chains, and apply them to writing new lyrics for the classic heavy metal band Iron Maiden. The choice of application domain is a result of listening to them non-stop for days in anticipation of seeing them for the first time in over ten years this summer.</p>
+
+<p>Note that I don&rsquo;t actually provide any code snippets, but if you follow my description of the resulting data structure you should be able to get a similar chain working without any problems; as ever the main issue comes in the data collection stage.</p>
+
+<h2 id="markov-chains">Markov Chains</h2>
+
+<p>Along with being a very handy tool for sampling from posterior distributions, markov chains also find use in time series analysis, defining state transitions as functions of the current state. I&rsquo;ve used recurrent neural networks and reservoir computing before for time series analysis, whereby a network tries to map the dynamics of the underlying data producing mechanism, but markov chains are fundamentally simpler (which comes with its own set of pros and cons). Instead of trying to map dynamics, they instead describe a set of state transitions, where the next state is only a function of the current state. While they have been used for high resolution continuous data, I can imagine that markov chains struggle owing to the large number of potential states found when discretising continuous data. RNNs on the other hand excel for such problems. When dealing with discrete data without too many potential values, markov chains then prove more suitable.</p>
+
+<p>One particular application is in textual analysis, which is time series problem where the data is in the form of single letters or words, and so the number of potential states is relatively low (26 letters + symbols if analysing the text on a per character basis, or several hundred to thousand if using whole words). In this post I&rsquo;m going to describe generating text (song lyrics to be precise) using markov chains as it&rsquo;s a fun application with meaningful output.</p>
+
+<p>For textual analysis, markov chains are very simple unlike RNNs, since you&rsquo;d need to know in advance the possible system outputs (i.e. letters or words), this could prove problematic. I&rsquo;ll be looking at applying markov chains operating at the level of whole words, although the same principles apply when analysing data character by character.</p>
+
+<p>To generate song lyrics we need to perform two steps:</p>
+
+<ul>
+<li>Build up a state transition model</li>
+<li>Initialise the chain to a random state and run through to completion</li>
+</ul>
+
+<h2 id="pre-processing-the-data">Pre-processing the data</h2>
+
+<p>Before building state transition graphs, you need to have your data appropriately processed. In this case I&rsquo;ll be using Iron Maiden&rsquo;s lyrics from all their songs, although any structured plain text would work.</p>
+
+<p>I want my generated songs to have the same structure as real songs, i.e. similar length lines, grouped into verses, with a standard number of verses before the song finishes. I&rsquo;m not going to try and get a proper verse/chorus structure functioning, although it wouldn&rsquo;t be too challenging - you&rsquo;d need your input data to note whether a new stanza (is that the right word?!) denotes a verse or a chorus, then you can repeat your chorus stanza when needed.</p>
+
+<p>To format my songs I need the text that I&rsquo;m building the chain from to indicate its grammar. Since my data will be tokenized into words to build up the state transition graph, it makes sense to have special words to indicate the end of a line, verse, or song. If these words appear in my generated lyrics then I can simply apply the appropriate grammar.</p>
+
+<p>In particular I&rsquo;ll use &lsquo;LEND&rsquo;, &lsquo;VEND&rsquo;, &lsquo;SEND&rsquo; to denote line endings, verse endings and song endings. For example, here&rsquo;s the first verse and a half of The Trooper:</p>
+
+<p><em>LEND You take my life but I&rsquo;ll take yours too LEND You fire your musket but I&rsquo;ll run you through LEND So when you&rsquo;re waiting for the next attack LEND You&rsquo;d better stand there&rsquo;s no turning back LEND VEND The bugle sounds as the charge begins LEND</em></p>
+
+<p>This encoding allows a song to be stored in a single string, while still maintaining its original structure. Combine all the songs together and you end up with an entire discography in one string.</p>
+
+<h2 id="building-the-state-transition-model">Building the state transition model</h2>
+
+<p>The next step is to generate the transition probabilities, i.e. if the current word is &ldquo;turning&rdquo;, what should the next word be? We need to parameterise our chain here to define the current state. The parameter is called &ldquo;order&rdquo;, and is an integer value indicating how many of the previous words should be included in this state. I.e. with an order=2, the first two states of The Trooper would be &ldquo;LEND You&rdquo;, &ldquo;You take&rdquo;, while with an order = 1 they are &ldquo;You&rdquo; and &ldquo;take&rdquo;. To build up the chain we need to keep a record of every possible state and the following word for each of these.</p>
+
+<p>An appropriate data structure for this is a hash table (I actually implemented this code in Python as it&rsquo;s ideal for quick tasks such as this). In this table, each key is a current state (of order <code>n</code> words), with a corresponding list of potential next words.</p>
+
+<p>To build the chain you window over the text a word at a time, recording the current state of <code>n</code> words and the next word. Eventually you&rsquo;ll end up with something like the following (for an n=2 chain) on The Trooper lyrics as above:</p>
+
+<p>{
+  &lsquo;LEND You&rsquo;: [&lsquo;take&rsquo;],
+  &lsquo;You take&rsquo;: [&lsquo;my&rsquo;],
+  &lsquo;take my&rsquo;: [&lsquo;life&rsquo;],
+  &hellip;
+  &lsquo;LEND The&rsquo;: [&lsquo;mighty&rsquo;, &lsquo;screams&rsquo;],
+  &lsquo;but I&rsquo;ll&rsquo;: [&lsquo;take&rsquo;, &lsquo;run&rsquo;]
+}</p>
+
+<p>Once you have built up a dictionary of states you&rsquo;re ready to generate new songs.</p>
+
+<h2 id="running-the-model">Running the model</h2>
+
+<p>To run the model you simply start at a random state (I limit this choice to states beginning with &lsquo;LEND&rsquo; to increase the chances of getting a realistic song), and then select a random next word from the list of possible next states, then using your new current state generate the next state and so on.</p>
+
+<p>As can be imagined, some phrases have a larger number of potential next words than others. If you use a high order than the list of next states will greatly diminish unless you have an extremely large training data set. With song lyrics there isn&rsquo;t a large amount of text, using any order greater than 2 can lead to simply reproducing entire existing songs. For example, if we used order 5, there&rsquo;s most likely only going to be one next state to the current state of &ldquo;You take my life but&rdquo; in the entire Iron Maiden discography.</p>
+
+<h2 id="example-songs">Example Songs</h2>
+
+<p>Now the bit you&rsquo;ve all been waiting for, some actual generated lyrics rather than just me droning on!</p>
+
+<p>Here&rsquo;s an example song using a chain of <strong>order one</strong>:</p>
+
+<p><em>It wasn&rsquo;t meant for granted
+The evil that has won
+There is my eyes red and no names
+Come the plot
+Comrades dead
+I disappeared so long to hammer them no tales
+There are preparing for my side</em></p>
+
+<p><em>Don&rsquo;t tell me</em></p>
+
+<p><em>Packed your mind begins to their turn your deepest space
+Oh Lamia please try to be
+Or some things that who fired first
+As I feel that I go</em></p>
+
+<p><em>Shadows and shame
+Water water fire</em></p>
+
+<p><em>If I just can&rsquo;t go down on my soul to say
+It&rsquo;s meaningless and ran like a man
+Don&rsquo;t be free man
+That I ever shall be</em></p>
+
+<p><em>He knocks you hide yourself a statue carved in your time well</em></p>
+
+<p><em>Gone are sealed and then we&rsquo;ll jump right into hearts
+I cannot think your back
+To stand with a beer
+Nobody has no life how I don&rsquo;t know where they&rsquo;re saying
+Then on my only me that men fear show the night
+Now a lonely satellite circus just trying to whet the devil himself come your daughter to sleep when man</em></p>
+
+<p><em>And the mixed emotion and the money
+Nomad where eagles dare.</em></p>
+
+<p>This is a nice example as while we can pinpoint certain sections to certain songs (well if you listen to as much Maiden as I do you can), but it&rsquo;s still novel enough to be interesting.</p>
+
+<p>Whereas using a chain of <strong>order two</strong> there are more sections of lyrics copied straight from existing songs, such as this:</p>
+
+<p><em>Judas my guide</em></p>
+
+<p><em>Out of the game
+No point asking who&rsquo;s to go over the hill
+They&rsquo;ve put the blame unto me
+Telling me to get ready and waiting
+Or it could be someone else
+Is this a dream or is it me I lost my dreams rip the bones
+How come the demons of creation
+Out of the citadel</em></p>
+
+<p><em>Out beyond the hill
+As you plunge into a new toll</em></p>
+
+<p><em>There are no errors in the dark of the dead</em></p>
+
+<p><em>Dusty dreams in fading daylight
+Till the TV
+Don&rsquo;t I believe you have to die
+Us or them-a well rehearsed lie</em></p>
+
+<p><em>Face at the open door
+Just let yourself go
+Bring your daughter to the clans</em></p>
+
+<p><em>Viking raiders from afar.</em></p>
+
+<p>While a chain of <strong>order five</strong> posts the entirety of Moonchild&hellip; Guess there aren&rsquo;t too many occurrences of the state &ldquo;For all the sins you&rdquo;!</p>
+
+<p><em>When Gabriel lies sleeping this child was born to die</em></p>
+
+<p><em>One more dies one more lives
+One baby cries one mother grieves
+For all the sins you will commit
+You&rsquo;ll beg forgiveness and none I&rsquo;ll give
+A web of fear shall be your coat
+To clothe you in the night
+A lucky escape for you young man
+But I&rsquo;ll see you damned in endless night</em></p>
+
+<p><em>Moonchild hear the mandrake scream
+Moonchild open the seventh seal
+Moonchild you&rsquo;ll be mine soon child
+Moonchild take my hand tonight.</em></p>
+
+<h2 id="summary">Summary</h2>
+
+<p>I hope that&rsquo;s been a simple overview of generating text with markov chains. Obviously they&rsquo;re used for far more complex purposes than producing poorly written Iron Maiden songs, but it&rsquo;s a neat concept with many tangible outputs, you just need to source a lot of data to generate anything meaningful.</p>
+
+<p>I haven&rsquo;t provided any code, but if you understand how the chains are fundamentally stored then it shouldn&rsquo;t prove challenging to build your own, provided you use an appropriate data structure.</p>
+
+      </div>
+
+      
+
+
+<div class="article-tags">
+  
+  <a class="btn btn-primary btn-outline" href="/tags/machine-learning">machine learning</a>
+  
+  <a class="btn btn-primary btn-outline" href="/tags/markov-chains">Markov chains</a>
+  
+</div>
+
+
+
+    </div>
+  </div>
+
+</article>
+
+
+
+<div class="article-container article-widget">
+  <div class="hr-light"></div>
+  <h3>Related</h3>
+  <ul>
+    
+    <li><a href="/2016/01/26/appreciating-the-distinction-between-explanatory-and-predictive-modelling/">Appreciating the distinction between explanatory and predictive modelling</a></li>
+    
+    <li><a href="/2015/11/24/incorporating-odds-into-predictaball/">Incorporating odds into Predictaball</a></li>
+    
+    <li><a href="/2015/10/26/predictaball-end-of-season-review/">Predictaball end of season review</a></li>
+    
+    <li><a href="/2015/04/14/implementation-of-multi-area-under-curve-mauc-in-python/">Implementation of Multi-Area Under Curve (MAUC) in Python</a></li>
+    
+    <li><a href="/2014/08/16/predicting-football-results-with-evolutionary-algorithms/">Predicting Football results with Evolutionary Algorithms</a></li>
+    
+  </ul>
+</div>
+
+
+
+
+<div class="article-container">
+  
+<section id="comments">
+  <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "stulacy" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <p class="powered-by">
+
+      &copy; 2017 Stuart Lacy &middot; 
+
+      Powered by the
+      <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+      <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+      <span class="pull-right" aria-hidden="true">
+        <a href="#" id="back_to_top">
+          <span class="button_icon">
+            <i class="fa fa-chevron-up fa-2x"></i>
+          </span>
+        </a>
+      </span>
+
+    </p>
+  </div>
+</footer>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close btn-large" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Cite</h4>
+      </div>
+      <div>
+        <pre><code class="modal-body tex"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-primary btn-outline js-copy-cite" href="#" target="_blank">
+          <i class="fa fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-primary btn-outline js-download-cite" href="#" target="_blank">
+          <i class="fa fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+    <script id="dsq-count-scr" src="//stulacy.disqus.com/count.js" async></script>
+    
+
+    
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha512-3P8rXCuGJdNZOnUx/03c1jOTnMn3rP63nBip5gOP2qmUh5YAdVAvFZ1E+QLZZbC1rtMrQb+mah3AfYW11RUrWA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.3/imagesloaded.pkgd.min.js" integrity="sha512-umsR78NN0D23AzgoZ11K7raBD+R6hqKojyBZs1w8WvYlsI+QuKRGBx3LFCwhatzBunCjDuJpDHwxD13sLMbpRA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha512-iztkobsvnjKfAtTNdHkGVjAYTrrtlC7mGp/54c40wowO7LhURYl3gVzzcEqGl/qKXQltJ2HwMrdLcNUdo+N/RQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.4/isotope.pkgd.min.js" integrity="sha512-VDBOIlDbuC4VWxGJNmuFRQ0Li0SKkDpmGyuhAG5LTDLd/dJ/S0WMVxriR2Y+CyPL5gzjpN4f/6iqWVBJlht0tQ==" crossorigin="anonymous"></script>
+    
+    
+    <script src="/js/hugo-academic.js"></script>
+    
+
+    
+    
+      
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+      
+
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/python.min.js"></script>
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_CHTML" integrity="sha512-tOav5w1OjvsSJzePRtt2uQPFwBoHt1VZcUq8l8nm5284LEKE9FSJBQryzMBzHxY5P0zRdNqEcpLIRVYFNgu1jw==" crossorigin="anonymous"></script>
+    
+    
+
+  </body>
+</html>
+

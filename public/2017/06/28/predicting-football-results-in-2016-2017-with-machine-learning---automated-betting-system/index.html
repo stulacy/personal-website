@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en-uk">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme" content="hugo-academic">
+  <meta name="generator" content="Hugo 0.31.1" />
+  <meta name="author" content="Stuart Lacy">
+  <meta name="description" content="Research Fellow">
+
+  
+  <link rel="alternate" hreflang="en-uk" href="/2017/06/28/predicting-football-results-in-2016-2017-with-machine-learning---automated-betting-system/">
+
+  
+  
+
+
+  
+
+  
+  
+  
+  
+    
+  
+  
+    
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha512-6MXa8B6uaO18Hid6blRMetEIoPqHf7Ux1tnyIQdpt9qI5OACx7C+O3IVTr98vwGnlcg0LOLa02i9Y1HpVhlfiw==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.1/css/academicons.min.css" integrity="sha512-NThgw3XKQ1absAahW6to7Ey42uycrVvfNfyjqcFNgCmOCQ5AR4AO0SiXrN+8ZtYeappp56lk1WtvjVmEa+VR6A==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous">
+  
+  
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700%7cMerriweather%7cRoboto&#43;Mono">
+  
+  <link rel="stylesheet" href="/styles.css">
+  
+
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-110705129-1', 'auto');
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="//www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="/2017/06/28/predicting-football-results-in-2016-2017-with-machine-learning---automated-betting-system/">
+
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="twitter:site" content="@stulacy">
+  <meta property="twitter:creator" content="@stulacy">
+  
+  <meta property="og:site_name" content="Stuart Lacy">
+  <meta property="og:url" content="/2017/06/28/predicting-football-results-in-2016-2017-with-machine-learning---automated-betting-system/">
+  <meta property="og:title" content="Predicting football results in 2016-2017 with machine learning - Automated betting system | Stuart Lacy">
+  <meta property="og:description" content="">
+  <meta property="og:locale" content="en-uk">
+  
+  <meta property="article:published_time" content="2017-06-28T00:00:00&#43;02:00">
+  
+  <meta property="article:modified_time" content="2017-06-28T00:00:00&#43;02:00">
+  
+
+  
+
+  <title>Predicting football results in 2016-2017 with machine learning - Automated betting system | Stuart Lacy</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+      <a class="navbar-brand" href="/">Stuart Lacy</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#about">
+            
+            <span>Home</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/post">
+            
+            <span>Blog</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/publication">
+            
+            <span>Publications</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#projects">
+            
+            <span>Projects</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#contact">
+            
+            <span>Contact</span>
+            
+          </a>
+        </li>
+
+        
+        
+      
+
+      
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+  <div class="article-container">
+    <div class="article-inner">
+      <h1 itemprop="name">Predicting football results in 2016-2017 with machine learning - Automated betting system</h1>
+
+      
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2017-06-28 00:00:00 &#43;0200 CEST" itemprop="datePublished">
+      Jun 28, 2017
+    </time>
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    9 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/2017/06/28/predicting-football-results-in-2016-2017-with-machine-learning---automated-betting-system/#disqus_thread"></a>
+  
+
+  
+
+  
+  
+
+  
+
+</div>
+
+
+      <div class="article-style" itemprop="articleBody">
+        
+
+<p>The <a href="stuartlacy.co.uk/2017/06/27/predicting-football-results-in-2016-2017-with-machine-learning---bayesian-hierarchical-modelling/" target="_blank">last post</a> showed that using a fully Bayesian multi-level model of the match outcomes helped Predictaball achieve a 58% overall prediction accuracy on the four European leagues, up 8% from last season. This post will describe the betting system I used to try and profit by identifying value bets in the offered odds.</p>
+
+<h2 id="betting-system">Betting system</h2>
+
+<p>Before delving into the profit analysis I&rsquo;ll firstly quickly summarise
+the staking model I used since I haven&rsquo;t mentioned it anywhere before.</p>
+
+<p>I haven&rsquo;t any experience with this and so at first I tried a few naive
+schemes that bet unit stakes:</p>
+
+<ul>
+<li>Always betting on the outcome with the highest probability</li>
+<li>Betting on the outcome with the highest probability when this
+probability is greater than the bookies&rsquo; implied probability</li>
+<li>Betting on any outcome when the probability is greater than the
+bookies&rsquo; implied probability</li>
+</ul>
+
+<p>Perhaps unsurprisingly, none of these made any profit on my test set of
+the 2015-2016 season. I then research ways of modifying the stake value
+itself and came across the well-known Kelly Criterion</p>
+
+<p>$f^{*} = \frac{p(b+1)-1}{b}$</p>
+
+<p>where $f^{*}$ is the fraction of bankroll to bet, $p$ is the
+estimated probability of the event and $b$ is the profit received from a
+unit bet if it paid out.</p>
+
+<p>However, I found that this scheme resulted in me losing money and so I
+decided to get back into my comfort zone and implement a custom system.
+I formulated a model of the absolute stake to place $s$ as a function of
+the ratio between the predicted and implied probabilities of the
+outcome:</p>
+
+<p>$$s = \beta<em>{1} x</em>{1} + \beta<em>{2} x</em>{2}$$</p>
+
+<p>Where $x_{1}$ is the predicted probability and $x_{2}$
+is the bookies&rsquo; implied probabilty. Fitting the coefficients with a
+standard Nelder-Mead optimisation resulted in a ratio of
+$\frac{\beta_{1}}{\beta_{2}} = -0.8$, i.e. if
+$x_{1} &gt; 1.2x_{2}$ then a positive stake is given,
+with the value of the stake chosen by selecting an appropriate value for
+either $\beta_{1}$ or $\beta_{2}$. I chose a value that resulted
+in the maximum stake being £5, since I&rsquo;m a cheapskate.</p>
+
+<p>However, in hindsight I should have instead modelled bankroll ratio like
+the Kelly Criterion. Two main advantages of modelling stakes as a
+fraction of bank are that it allows for bigger profit when on a winning
+streak and it is impossible to go into the red provided appropriate
+limits are enforced when placing multiple bets simultaneously.</p>
+
+<p>Note that the staking model doesn&rsquo;t vary between leagues. This is an
+important point since the predicted probabilities are generated in the
+same way for each league, but the odds themselves may be determined
+differently for each league. I.e. the British-based bookies may have
+more knowledge of the Premier League and so can offer more accurate
+odds, or they may adjust odds to the bets being placed on them, so there
+may be more variance in popular markets.</p>
+
+<p><strong>I should also clarify that I didn&rsquo;t actually place these bets as I
+considered this season a beta run of the betting system, but instead
+stored the odds and stakes each week so I can view what would have
+happened if I had placed them.</strong></p>
+
+<h2 id="betting-profit">Betting profit</h2>
+
+<h3 id="overall">Overall</h3>
+
+<p>All that theoretical talk is all very well and good, but how much money
+would I have made if I had followed my automated tipping system? In
+short, blindly following the tips would have lost me money, but as we&rsquo;ll
+see in a bit, a small amount of judgement and monitoring would have
+produced a nice steady profit.</p>
+
+<p>Across the entire season, the net profit was £-74.87 from 512 bets, with
+81 (16%) having paid off. Obviously, this is poor, although we&rsquo;ll
+identify why this is the case shortly and identify how to turn this
+around.</p>
+
+<p>The plot below shows my cumulative profit over the season, showing a
+rather linear downwards trend.</p>
+
+<p><img src="/img/endofseason_2017/unnamed-chunk-6-1.png" alt="Profit over time" /></p>
+
+<h3 id="profit-separated-by-league">Profit separated by league</h3>
+
+<p>To try and identify any small positives out of this we&rsquo;ll try to
+diagnose what went wrong, starting with looking at profit broken down by
+league. Immediately from the table below, we can see that there is a
+large amount of inter-league variance, since the Premier League is in
+profit and the Bundesliga essentially breaks even. The Spanish and
+Italian leagues on the other hand don&rsquo;t fare so well at all and are
+responsible for the majority of the loss.</p>
+
+<p>What reason could there be for this large discrepancy? My pure
+speculation is that bookies adjust odds according to the number of bets
+being placed, and so in markets with a large number of bets being placed
+you&rsquo;ll see more adjusted odds. I imagine that far more bets are being
+placed on the Premiership, but why would this result in profit for me?
+Again, I&rsquo;d have to speculate that people here tend to vote for the
+favourite and so lengthen the odds on the underdog, thereby undervaluing
+them. This phenomena tends to happen whenever the England national team
+play, as they get massively overvalued, helping people like me make tidy
+profit when they lose to teams like Iceland. However, in markets such as
+Italy and Spain, I&rsquo;d imagine the majority of people betting from the UK
+(where the bookies that I&rsquo;ve used are based) on these markets are more
+informed and so don&rsquo;t tend to upset the raw odds too much. I have no
+idea how to explain the Bundesliga however.</p>
+
+<p>Interestingly, there seems to be an inverse relationship between the
+number of bets placed and the profit. This suggests that the optimal
+staking model (i.e. the premiership) has a high specificity since it
+identifies fewer poor value bets (false positives in this context).</p>
+
+<table>
+<thead>
+<tr class="header">
+<th align="left">League</th>
+<th align="center"># bets</th>
+<th align="center"># won</th>
+<th align="center">Average stake</th>
+<th align="center">Profit</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">premiership</td>
+<td align="center">115</td>
+<td align="center">26</td>
+<td align="center">£0.88</td>
+<td align="center">£24.44</td>
+</tr>
+<tr class="even">
+<td align="left">bundesliga1</td>
+<td align="center">126</td>
+<td align="center">27</td>
+<td align="center">£1.04</td>
+<td align="center">£-0.62</td>
+</tr>
+<tr class="odd">
+<td align="left">seriea</td>
+<td align="center">136</td>
+<td align="center">18</td>
+<td align="center">£1.22</td>
+<td align="center">£-36.43</td>
+</tr>
+<tr class="even">
+<td align="left">laliga</td>
+<td align="center">135</td>
+<td align="center">10</td>
+<td align="center">£0.92</td>
+<td align="center">£-62.26</td>
+</tr>
+</tbody>
+</table>
+
+<p>The plot below displays the profitability over the course of the season,
+separated by league. It shows that the overall profit of the Premiership
+is no fluke caused by a big winner on the last matchday, but a result of
+steady consistent wins throughout the season. Likewise profit on the
+Italian and Spanish leagues have been on a steady downwards trend all
+season long. The Bundesliga is a bit different in that for the first
+half of the season the net profit hovers around 0, before heading into
+the black as a result of 3 big wins, peaking at £20 profit, before
+dipping back to 0 by the end of the season. This is a point at which
+human intervention would pay off, as those 3 big wins could have been
+identified as anomalies and therefore deciding to stop placing bets on
+the Bundesliga before the winnings regressed to the mean.</p>
+
+<p><img src="/img/endofseason_2017/unnamed-chunk-9-1.png" alt="Profit over time split by league" /></p>
+
+<p>The main take home message from this section is that there is a large
+variation in profitability across the leagues, and any automated tipping
+system should be used with a grain of salt. Over this summer I&rsquo;ll refine
+the model by taking the league into account, as well as incorporating
+human input to a greater degree. For example, by analysing historical
+data it may be evident that some leagues are more profitable than
+others, and so it would be easier to notice anomalies, such as when the
+Bundesliga was in profit in March, and stop betting at this point.</p>
+
+<h2 id="relationship-between-predictability-and-profitability">Relationship between predictability and profitability</h2>
+
+<p>Something that struck me during the above analysis was that there didn&rsquo;t
+seem to be any relationship between the predictability and profitability
+of a league. While it is true that the Premiership achieved both the
+highest accuracy and largest profit, La Liga and Serie A had very high
+match prediction accuracy of 58% but both lost large amounts of money.
+The Bundesliga on the other hand only had 51% of outcomes correctly
+guessed, but broke even overall. Likewise, there doesn&rsquo;t appear to be
+any patterns between the plots of accuracy and profitability broken down
+by league.</p>
+
+<p>To me, this suggests that just because it may be hard to predict a
+sport, then it doesn&rsquo;t mean you can&rsquo;t make money on it. The converse is
+also true, while it is impressive being able to predict 58% of La Liga
+outcomes, it doesn&rsquo;t count for a lot if the bookies can do it better.</p>
+
+<h2 id="conclusions">Conclusions</h2>
+
+<p>From this analysis I&rsquo;ve identified 3 main areas to work on over the
+summer to improve the model for next season.</p>
+
+<p>I&rsquo;ll firstly address the lack of accuracy at the start of the season,
+since it takes until December for the model to reach a steady state.
+Obviously part of this is due to the nature of an off-season where each
+team changes their squad and comes back at a different level to how they
+left off. The promotion of new teams adds an additional element of the
+unknown, since there is less historical data to estimate how they will
+fare in the new league. However, if I can capture these uncertainties in
+the data I feed my model, such as by using more team level attributes
+such as manager and squad changes, then hopefully my model can adapt
+more quickly.</p>
+
+<p>Somewhat related to this, I&rsquo;d like my model to adapt more quickly to
+teams that play well, such as the example with Leipzig. Currently the
+measure of a team&rsquo;s strength is only calculated at the start of the
+season based on all available training data. If a team hasn&rsquo;t been seen
+before then it is randomly assigned a strength. Instead, it would be
+useful to continuously update this, so for example Leipzig could enter
+the season with a randomly drawn strength value but this is updated to
+reflect their considerable abilit as they keep winning games. One
+standard way to do this is to use Elo scores. Elo scores could also help
+alleviate the uncertainty at the start of the season, by allowing the
+first $x$ games to count as &ldquo;placement games&rdquo; that update the Elo more
+strongly.</p>
+
+<p>I&rsquo;d going to spend more time on my admittedly rushed and naive betting
+modelling. Armed with the knowledge from this work, I&rsquo;m going to look
+into stratifying my model by leagues, or other factors that could affect
+betting technique, thereby helping me to identify high value bets. Also,
+rather than outputting an absolute value to stake, the model should
+provide a ratio of my current bank, thereby allowing for exponential
+growth in the case as I had with the Premiership this season where I had
+consistent linear profit.</p>
+
+      </div>
+
+      
+
+
+<div class="article-tags">
+  
+  <a class="btn btn-primary btn-outline" href="/tags/football">football</a>
+  
+  <a class="btn btn-primary btn-outline" href="/tags/machine-learning">machine learning</a>
+  
+  <a class="btn btn-primary btn-outline" href="/tags/predictaball">Predictaball</a>
+  
+</div>
+
+
+
+    </div>
+  </div>
+
+</article>
+
+
+
+<div class="article-container article-widget">
+  <div class="hr-light"></div>
+  <h3>Related</h3>
+  <ul>
+    
+    <li><a href="/2017/06/27/predicting-football-results-in-2016-2017-with-machine-learning---bayesian-hierarchical-modelling/">Predicting football results in 2016-2017 with machine learning - Bayesian hierarchical modelling</a></li>
+    
+    <li><a href="/2016/05/29/predictaball-end-of-season-review-for-2015-2016/">Predictaball end of season review for 2015-2016</a></li>
+    
+    <li><a href="/2015/11/24/incorporating-odds-into-predictaball/">Incorporating odds into Predictaball</a></li>
+    
+    <li><a href="/2015/10/26/predictaball-end-of-season-review/">Predictaball end of season review</a></li>
+    
+    <li><a href="/2014/08/16/predicting-football-results-with-evolutionary-algorithms/">Predicting Football results with Evolutionary Algorithms</a></li>
+    
+  </ul>
+</div>
+
+
+
+
+<div class="article-container">
+  
+<section id="comments">
+  <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "stulacy" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <p class="powered-by">
+
+      &copy; 2017 Stuart Lacy &middot; 
+
+      Powered by the
+      <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+      <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+      <span class="pull-right" aria-hidden="true">
+        <a href="#" id="back_to_top">
+          <span class="button_icon">
+            <i class="fa fa-chevron-up fa-2x"></i>
+          </span>
+        </a>
+      </span>
+
+    </p>
+  </div>
+</footer>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close btn-large" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Cite</h4>
+      </div>
+      <div>
+        <pre><code class="modal-body tex"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-primary btn-outline js-copy-cite" href="#" target="_blank">
+          <i class="fa fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-primary btn-outline js-download-cite" href="#" target="_blank">
+          <i class="fa fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+    <script id="dsq-count-scr" src="//stulacy.disqus.com/count.js" async></script>
+    
+
+    
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha512-3P8rXCuGJdNZOnUx/03c1jOTnMn3rP63nBip5gOP2qmUh5YAdVAvFZ1E+QLZZbC1rtMrQb+mah3AfYW11RUrWA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.3/imagesloaded.pkgd.min.js" integrity="sha512-umsR78NN0D23AzgoZ11K7raBD+R6hqKojyBZs1w8WvYlsI+QuKRGBx3LFCwhatzBunCjDuJpDHwxD13sLMbpRA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha512-iztkobsvnjKfAtTNdHkGVjAYTrrtlC7mGp/54c40wowO7LhURYl3gVzzcEqGl/qKXQltJ2HwMrdLcNUdo+N/RQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.4/isotope.pkgd.min.js" integrity="sha512-VDBOIlDbuC4VWxGJNmuFRQ0Li0SKkDpmGyuhAG5LTDLd/dJ/S0WMVxriR2Y+CyPL5gzjpN4f/6iqWVBJlht0tQ==" crossorigin="anonymous"></script>
+    
+    
+    <script src="/js/hugo-academic.js"></script>
+    
+
+    
+    
+      
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+      
+
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/python.min.js"></script>
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_CHTML" integrity="sha512-tOav5w1OjvsSJzePRtt2uQPFwBoHt1VZcUq8l8nm5284LEKE9FSJBQryzMBzHxY5P0zRdNqEcpLIRVYFNgu1jw==" crossorigin="anonymous"></script>
+    
+    
+
+  </body>
+</html>
+

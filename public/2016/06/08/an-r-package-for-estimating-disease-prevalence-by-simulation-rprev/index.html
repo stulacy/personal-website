@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en-uk">
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="theme" content="hugo-academic">
+  <meta name="generator" content="Hugo 0.31.1" />
+  <meta name="author" content="Stuart Lacy">
+  <meta name="description" content="Research Fellow">
+
+  
+  <link rel="alternate" hreflang="en-uk" href="/2016/06/08/an-r-package-for-estimating-disease-prevalence-by-simulation-rprev/">
+
+  
+  
+
+
+  
+
+  
+  
+  
+  
+    
+  
+  
+    
+    
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+    
+  
+  
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha512-6MXa8B6uaO18Hid6blRMetEIoPqHf7Ux1tnyIQdpt9qI5OACx7C+O3IVTr98vwGnlcg0LOLa02i9Y1HpVhlfiw==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.1/css/academicons.min.css" integrity="sha512-NThgw3XKQ1absAahW6to7Ey42uycrVvfNfyjqcFNgCmOCQ5AR4AO0SiXrN+8ZtYeappp56lk1WtvjVmEa+VR6A==" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="sha512-SfTiTlX6kk+qitfevl/7LibUOeJWlt9rbyDn92a1DqWOw9vWG2MFoays0sgObmWazO5BQPiFucnnEAjpAB+/Sw==" crossorigin="anonymous">
+  
+  
+  
+  
+  <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:400,700%7cMerriweather%7cRoboto&#43;Mono">
+  
+  <link rel="stylesheet" href="/styles.css">
+  
+
+  
+    <script>
+      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+      ga('create', 'UA-110705129-1', 'auto');
+      ga('require', 'eventTracker');
+      ga('require', 'outboundLinkTracker');
+      ga('require', 'urlChangeTracker');
+      ga('send', 'pageview');
+    </script>
+    <script async src="//www.google-analytics.com/analytics.js"></script>
+    
+    <script async src="https://cdnjs.cloudflare.com/ajax/libs/autotrack/2.4.1/autotrack.js" integrity="sha512-HUmooslVKj4m6OBu0OgzjXXr+QuFYy/k7eLI5jdeEy/F4RSgMn6XRWRGkFi5IFaFgy7uFTkegp3Z0XnJf3Jq+g==" crossorigin="anonymous"></script>
+    
+  
+
+  
+
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="icon" type="image/png" href="/img/icon.png">
+  <link rel="apple-touch-icon" type="image/png" href="/img/icon-192.png">
+
+  <link rel="canonical" href="/2016/06/08/an-r-package-for-estimating-disease-prevalence-by-simulation-rprev/">
+
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="twitter:site" content="@stulacy">
+  <meta property="twitter:creator" content="@stulacy">
+  
+  <meta property="og:site_name" content="Stuart Lacy">
+  <meta property="og:url" content="/2016/06/08/an-r-package-for-estimating-disease-prevalence-by-simulation-rprev/">
+  <meta property="og:title" content="An R package for estimating disease prevalence by simulation: rprev | Stuart Lacy">
+  <meta property="og:description" content="">
+  <meta property="og:locale" content="en-uk">
+  
+  <meta property="article:published_time" content="2016-06-08T00:00:00&#43;02:00">
+  
+  <meta property="article:modified_time" content="2016-06-08T00:00:00&#43;02:00">
+  
+
+  
+
+  <title>An R package for estimating disease prevalence by simulation: rprev | Stuart Lacy</title>
+
+</head>
+<body id="top" data-spy="scroll" data-target="#toc" data-offset="71" >
+
+<nav class="navbar navbar-default navbar-fixed-top" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="navbar-header">
+      
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+              data-target=".navbar-collapse" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+      <a class="navbar-brand" href="/">Stuart Lacy</a>
+    </div>
+
+    
+    <div class="collapse navbar-collapse">
+
+      
+      
+      <ul class="nav navbar-nav navbar-right">
+        
+
+        
+
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#about">
+            
+            <span>Home</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/post">
+            
+            <span>Blog</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/publication">
+            
+            <span>Publications</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#projects">
+            
+            <span>Projects</span>
+            
+          </a>
+        </li>
+
+        
+        
+
+        
+
+        
+          
+        
+
+        <li class="nav-item">
+          <a href="/#contact">
+            
+            <span>Contact</span>
+            
+          </a>
+        </li>
+
+        
+        
+      
+
+      
+      </ul>
+
+    </div>
+  </div>
+</nav>
+
+
+<article class="article" itemscope itemtype="http://schema.org/Article">
+
+  
+
+
+  <div class="article-container">
+    <div class="article-inner">
+      <h1 itemprop="name">An R package for estimating disease prevalence by simulation: rprev</h1>
+
+      
+
+<div class="article-metadata">
+
+  <span class="article-date">
+    
+    <time datetime="2016-06-08 00:00:00 &#43;0200 CEST" itemprop="datePublished">
+      Jun 8, 2016
+    </time>
+  </span>
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    3 min read
+  </span>
+  
+
+  
+  
+  <span class="middot-divider"></span>
+  <a href="/2016/06/08/an-r-package-for-estimating-disease-prevalence-by-simulation-rprev/#disqus_thread"></a>
+  
+
+  
+
+  
+  
+
+  
+
+</div>
+
+
+      <div class="article-style" itemprop="articleBody">
+        <p>At <a href="https://www.york.ac.uk/healthsciences/research/ecsg/" target="_blank">ECSG (Epidemiology and Cancer Statistics Group)</a>, we primarily work with myeloid and lymphoid disease registries. Resulting from our successful collaborative research project - <a href="https://hmrn.org/" target="_blank">HMRN (Haematological Malignancy Research Network)</a> - we have access to a large observational dataset of haematological malignancies across Yorkshire. From this we can estimate various measures of interest, such as the effect of standard demographic factors (mainly age and sex) on incidence rates, any longitudinal incidence trends, in addition to numerous statistics related to survival, for example noting any clinical or demographic factors associated with a high risk level.</p>
+
+<p>One useful measure of a disease that is harder to estimate is disease prevalence, the number of people alive with a specific disease. Prevalence is typically measured by a point estimate at a specific index date as a ratio of number of cases to a specific population level, i.e. 3.5 per 100,000. Naturally, prevalence is a function of both incidence and survival, and so can typically be estimated from a combination of patient level data and national statistics. However, traditional analytical approaches yield unwieldy integrals and equations to calculate standard errors, and so do not provide ideal for interpretable results.</p>
+
+<p>In recent years, owing to significant advances in computational power, <em>statistical computing</em> has become a well researched discipline. Statistical computing offers an alternative to traditional analytical statistics estimation by producing a stochastic model of the process which generates the data, before sampling from this process to generate simulated data. If the model is appropriate, then repeated sampling generates representative data sets from which summary statistics - including standard error - can be readily calculated.</p>
+
+<p>In a recent paper written by colleagues, <a href="http://www.sciencedirect.com/science/article/pii/S1877782114000277" target="_blank">Crouch, Simon, et al. <em>Determining disease prevalence from incidence and survival using simulation techniques</em> Cancer epidemiology 38.2 (2014): 193-199.</a>, a simulation approach to prevalence estimation was presented. One significant benefit of this technique is that it can be calculated solely from highly granular patient level data and provides confidence levels, avoiding complex calculations inherent in an analytical approach. It relies upon having an accurate registry data set, with an appropriate duration.</p>
+
+<p>One of the projects I&rsquo;ve been working has been to help develop an R package from this algorithm, so that others with disease registry data sets can produce their own prevalence estimates. I&rsquo;m proud to announce that the first version of <a href="https://cran.rstudio.com/web/packages/rprev/" target="_blank">rprev is now available on CRAN</a>. This implementation will provide estimates for any suitable data set, however, it is important to consider whether the output estimates are reliable or not before using them to inform practice or in external use. The current version of <code>rprev</code> makes two key assumptions regarding the disease which must be met for the prevalence estimates to be reliable:</p>
+
+<ul>
+<li>The incidence process takes the form of a homogeneous Poisson process</li>
+<li>Disease survival can be accurately modelled by a Weibull regression on age and sex</li>
+</ul>
+
+<p>We provide diagnostic functions for assessing the validity of these assumptions, and in future releases we will allow the user to specify the incidence process and survival model. Furthermore, the simulation process relies upon having an appropriate sample data set which accurately reflects the population in consideration.</p>
+
+<p>We have provided a <a href="https://cran.rstudio.com/web/packages/rprev/vignettes/user_guide.html" target="_blank">user guide</a> detailing how to use the package; for most people the <code>prevalence</code> function is most useful as it does the heavy duty work. However, we <strong>strongly recommend</strong> reading the user guide first, along with the function documentation, so that the resulting estimates are as accurate and reliable as possible.</p>
+
+<p>Any feedback is very welcome for the next release of <code>rprev</code>, see the <a href="https://cran.rstudio.com/web/packages/rprev/" target="_blank">package&rsquo;s CRAN page</a> for contact details.</p>
+
+      </div>
+
+      
+
+
+<div class="article-tags">
+  
+  <a class="btn btn-primary btn-outline" href="/tags/r">R</a>
+  
+  <a class="btn btn-primary btn-outline" href="/tags/software-development">software development</a>
+  
+  <a class="btn btn-primary btn-outline" href="/tags/prevalence">prevalence</a>
+  
+</div>
+
+
+
+    </div>
+  </div>
+
+</article>
+
+
+
+<div class="article-container article-widget">
+  <div class="hr-light"></div>
+  <h3>Related</h3>
+  <ul>
+    
+    <li><a href="/2015/01/06/dplyr-incompatibility-with-xtable/">Dplyr incompatibility with xtable</a></li>
+    
+    <li><a href="/2014/12/17/the-hadleyverse-makes-basic-data-analysis-easy-in-r/">The Hadleyverse makes basic data analysis easy in R</a></li>
+    
+    <li><a href="/2014/12/17/formatting-reproducible-tables-for-scientific-research-with-sweave/">Formatting reproducible tables for scientific research with Sweave</a></li>
+    
+    <li><a href="/2014/10/22/creating-a-peep-show-quote-bot/">Creating a Peep Show quote bot</a></li>
+    
+    <li><a href="/2014/09/14/usb-io-or-how-i-learned-to-stop-worrying-and-love-java-nio/">USB IO: Or how I learned to stop worrying and love Java NIO</a></li>
+    
+  </ul>
+</div>
+
+
+
+
+<div class="article-container">
+  
+<section id="comments">
+  <div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "stulacy" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+</section>
+
+
+</div>
+
+<footer class="site-footer">
+  <div class="container">
+    <p class="powered-by">
+
+      &copy; 2017 Stuart Lacy &middot; 
+
+      Powered by the
+      <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+      <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+      <span class="pull-right" aria-hidden="true">
+        <a href="#" id="back_to_top">
+          <span class="button_icon">
+            <i class="fa fa-chevron-up fa-2x"></i>
+          </span>
+        </a>
+      </span>
+
+    </p>
+  </div>
+</footer>
+
+
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close btn-large" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Cite</h4>
+      </div>
+      <div>
+        <pre><code class="modal-body tex"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-primary btn-outline js-copy-cite" href="#" target="_blank">
+          <i class="fa fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-primary btn-outline js-download-cite" href="#" target="_blank">
+          <i class="fa fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+    
+    <script id="dsq-count-scr" src="//stulacy.disqus.com/count.js" async></script>
+    
+
+    
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js" integrity="sha512-3P8rXCuGJdNZOnUx/03c1jOTnMn3rP63nBip5gOP2qmUh5YAdVAvFZ1E+QLZZbC1rtMrQb+mah3AfYW11RUrWA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.3/imagesloaded.pkgd.min.js" integrity="sha512-umsR78NN0D23AzgoZ11K7raBD+R6hqKojyBZs1w8WvYlsI+QuKRGBx3LFCwhatzBunCjDuJpDHwxD13sLMbpRA==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha512-iztkobsvnjKfAtTNdHkGVjAYTrrtlC7mGp/54c40wowO7LhURYl3gVzzcEqGl/qKXQltJ2HwMrdLcNUdo+N/RQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.4/isotope.pkgd.min.js" integrity="sha512-VDBOIlDbuC4VWxGJNmuFRQ0Li0SKkDpmGyuhAG5LTDLd/dJ/S0WMVxriR2Y+CyPL5gzjpN4f/6iqWVBJlht0tQ==" crossorigin="anonymous"></script>
+    
+    
+    <script src="/js/hugo-academic.js"></script>
+    
+
+    
+    
+      
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js" integrity="sha256-/BfiIkHlHoVihZdc6TFuj7MmJ0TWcWsMXkeDFwhi0zw=" crossorigin="anonymous"></script>
+      
+
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/python.min.js"></script>
+      
+      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/languages/r.min.js"></script>
+      
+
+      
+
+      <script>hljs.initHighlightingOnLoad();</script>
+    
+
+    
+    
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({ tex2jax: { inlineMath: [['$','$'], ['\\(','\\)']] } });
+    </script>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_CHTML" integrity="sha512-tOav5w1OjvsSJzePRtt2uQPFwBoHt1VZcUq8l8nm5284LEKE9FSJBQryzMBzHxY5P0zRdNqEcpLIRVYFNgu1jw==" crossorigin="anonymous"></script>
+    
+    
+
+  </body>
+</html>
+
