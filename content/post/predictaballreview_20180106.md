@@ -1,5 +1,5 @@
 +++
-date = 2018-01-05
+date = 2018-01-06
 draft = false
 tags = ["football", "elo", "machine learning", "Predictaball"]
 title = "Predictaball: mid-season review"
@@ -205,9 +205,9 @@ goals score.
 
 The resultant table is below and shows a lot of information! Where the
 expected points differs from the actual by at least 3, the value is
-coloured in either **green** (model expected fewer points, team is
-**over-performing**), or **red** (model estimated more points, team is
-**under-performing**).
+coloured in either **green** (team has more points than expected, team
+is **over-performing**), or **red** (team has fewer points than
+predicted, team is **under-performing**).
 
 **NB: It is important to note that the two models here are not directly
 comparable: an over-performing team as highlighted by Predictaball is
@@ -267,13 +267,13 @@ Man City
 <span style="color: green;">43</span>
 </td>
 <td style="text-align:center;">
-<span style="color: green;">-15</span>
+<span style="color: green;">15</span>
 </td>
 <td style="text-align:center;">
 <span style="color: black;">56</span>
 </td>
 <td style="text-align:center;">
-<span style="color: black;">-2</span>
+<span style="color: black;">2</span>
 </td>
 <td style="text-align:center;">
 1
@@ -290,7 +290,7 @@ Chelsea
 <span style="color: black;">41</span>
 </td>
 <td style="text-align:center;">
-<span style="color: black;">-1</span>
+<span style="color: black;">1</span>
 </td>
 <td style="text-align:center;">
 <span style="color: black;">42</span>
@@ -313,13 +313,13 @@ Tottenham
 <span style="color: red;">41</span>
 </td>
 <td style="text-align:center;">
-<span style="color: red;">4</span>
+<span style="color: red;">-4</span>
 </td>
 <td style="text-align:center;">
 <span style="color: red;">46</span>
 </td>
 <td style="text-align:center;">
-<span style="color: red;">9</span>
+<span style="color: red;">-9</span>
 </td>
 <td style="text-align:center;">
 3
@@ -336,13 +336,13 @@ Man Utd
 <span style="color: green;">38</span>
 </td>
 <td style="text-align:center;">
-<span style="color: green;">-5</span>
+<span style="color: green;">5</span>
 </td>
 <td style="text-align:center;">
 <span style="color: green;">37</span>
 </td>
 <td style="text-align:center;">
-<span style="color: green;">-6</span>
+<span style="color: green;">6</span>
 </td>
 <td style="text-align:center;">
 4
@@ -359,13 +359,13 @@ Liverpool
 <span style="color: black;">36</span>
 </td>
 <td style="text-align:center;">
-<span style="color: black;">-2</span>
+<span style="color: black;">2</span>
 </td>
 <td style="text-align:center;">
 <span style="color: red;">47</span>
 </td>
 <td style="text-align:center;">
-<span style="color: red;">9</span>
+<span style="color: red;">-9</span>
 </td>
 <td style="text-align:center;">
 5
@@ -382,13 +382,13 @@ Arsenal
 <span style="color: black;">36</span>
 </td>
 <td style="text-align:center;">
-<span style="color: black;">-1</span>
+<span style="color: black;">1</span>
 </td>
 <td style="text-align:center;">
 <span style="color: red;">46</span>
 </td>
 <td style="text-align:center;">
-<span style="color: red;">9</span>
+<span style="color: red;">-9</span>
 </td>
 <td style="text-align:center;">
 6
@@ -405,13 +405,13 @@ Everton
 <span style="color: black;">28</span>
 </td>
 <td style="text-align:center;">
-<span style="color: black;">1</span>
+<span style="color: black;">-1</span>
 </td>
 <td style="text-align:center;">
 <span style="color: green;">21</span>
 </td>
 <td style="text-align:center;">
-<span style="color: green;">-6</span>
+<span style="color: green;">6</span>
 </td>
 <td style="text-align:center;">
 7
@@ -428,13 +428,13 @@ Southampton
 <span style="color: red;">26</span>
 </td>
 <td style="text-align:center;">
-<span style="color: red;">7</span>
+<span style="color: red;">-7</span>
 </td>
 <td style="text-align:center;">
 <span style="color: red;">24</span>
 </td>
 <td style="text-align:center;">
-<span style="color: red;">5</span>
+<span style="color: red;">-5</span>
 </td>
 <td style="text-align:center;">
 10
@@ -451,13 +451,13 @@ Leicester
 <span style="color: black;">26</span>
 </td>
 <td style="text-align:center;">
-<span style="color: black;">-1</span>
+<span style="color: black;">1</span>
 </td>
 <td style="text-align:center;">
 <span style="color: green;">24</span>
 </td>
 <td style="text-align:center;">
-<span style="color: green;">-3</span>
+<span style="color: green;">3</span>
 </td>
 <td style="text-align:center;">
 8
@@ -474,7 +474,7 @@ Watford
 <span style="color: black;">24</span>
 </td>
 <td style="text-align:center;">
-<span style="color: black;">-1</span>
+<span style="color: black;">1</span>
 </td>
 <td style="text-align:center;">
 <span style="color: black;">25</span>
@@ -497,13 +497,13 @@ West Ham
 <span style="color: red;">23</span>
 </td>
 <td style="text-align:center;">
-<span style="color: red;">5</span>
+<span style="color: red;">-5</span>
 </td>
 <td style="text-align:center;">
 <span style="color: black;">16</span>
 </td>
 <td style="text-align:center;">
-<span style="color: black;">-2</span>
+<span style="color: black;">2</span>
 </td>
 <td style="text-align:center;">
 12
@@ -520,13 +520,13 @@ Stoke
 <span style="color: red;">23</span>
 </td>
 <td style="text-align:center;">
-<span style="color: red;">3</span>
+<span style="color: red;">-3</span>
 </td>
 <td style="text-align:center;">
 <span style="color: green;">16</span>
 </td>
 <td style="text-align:center;">
-<span style="color: green;">-4</span>
+<span style="color: green;">4</span>
 </td>
 <td style="text-align:center;">
 15
@@ -543,13 +543,13 @@ West Brom
 <span style="color: red;">23</span>
 </td>
 <td style="text-align:center;">
-<span style="color: red;">8</span>
+<span style="color: red;">-8</span>
 </td>
 <td style="text-align:center;">
 <span style="color: red;">19</span>
 </td>
 <td style="text-align:center;">
-<span style="color: red;">4</span>
+<span style="color: red;">-4</span>
 </td>
 <td style="text-align:center;">
 17
@@ -566,13 +566,13 @@ Bournemouth
 <span style="color: red;">22</span>
 </td>
 <td style="text-align:center;">
-<span style="color: red;">5</span>
+<span style="color: red;">-5</span>
 </td>
 <td style="text-align:center;">
 <span style="color: black;">16</span>
 </td>
 <td style="text-align:center;">
-<span style="color: black;">-1</span>
+<span style="color: black;">1</span>
 </td>
 <td style="text-align:center;">
 14
@@ -589,13 +589,13 @@ Crystal Palace
 <span style="color: red;">22</span>
 </td>
 <td style="text-align:center;">
-<span style="color: red;">4</span>
+<span style="color: red;">-4</span>
 </td>
 <td style="text-align:center;">
 <span style="color: red;">31</span>
 </td>
 <td style="text-align:center;">
-<span style="color: red;">13</span>
+<span style="color: red;">-13</span>
 </td>
 <td style="text-align:center;">
 11
@@ -612,13 +612,13 @@ Burnley
 <span style="color: green;">21</span>
 </td>
 <td style="text-align:center;">
-<span style="color: green;">-9</span>
+<span style="color: green;">9</span>
 </td>
 <td style="text-align:center;">
 <span style="color: green;">18</span>
 </td>
 <td style="text-align:center;">
-<span style="color: green;">-12</span>
+<span style="color: green;">12</span>
 </td>
 <td style="text-align:center;">
 9
@@ -635,13 +635,13 @@ Swansea
 <span style="color: red;">21</span>
 </td>
 <td style="text-align:center;">
-<span style="color: red;">8</span>
+<span style="color: red;">-8</span>
 </td>
 <td style="text-align:center;">
 <span style="color: black;">15</span>
 </td>
 <td style="text-align:center;">
-<span style="color: black;">2</span>
+<span style="color: black;">-2</span>
 </td>
 <td style="text-align:center;">
 19
@@ -658,13 +658,13 @@ Huddersfield
 <span style="color: green;">20</span>
 </td>
 <td style="text-align:center;">
-<span style="color: green;">-3</span>
+<span style="color: green;">3</span>
 </td>
 <td style="text-align:center;">
 <span style="color: green;">14</span>
 </td>
 <td style="text-align:center;">
-<span style="color: green;">-9</span>
+<span style="color: green;">9</span>
 </td>
 <td style="text-align:center;">
 15
@@ -681,13 +681,13 @@ Brighton
 <span style="color: black;">20</span>
 </td>
 <td style="text-align:center;">
-<span style="color: black;">-1</span>
+<span style="color: black;">1</span>
 </td>
 <td style="text-align:center;">
 <span style="color: green;">14</span>
 </td>
 <td style="text-align:center;">
-<span style="color: green;">-7</span>
+<span style="color: green;">7</span>
 </td>
 <td style="text-align:center;">
 18
@@ -710,7 +710,7 @@ Newcastle
 <span style="color: black;">19</span>
 </td>
 <td style="text-align:center;">
-<span style="color: black;">1</span>
+<span style="color: black;">-1</span>
 </td>
 <td style="text-align:center;">
 20
