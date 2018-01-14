@@ -1,6 +1,6 @@
 +++
 date = 2017-12-29
-modified = 2018-01-06
+modified = 2018-01-14
 draft = false
 tags = ["football", "elo", "machine learning", "Predictaball"]
 title = "Elo ratings of the Premier League: mid-season review"
@@ -23,14 +23,13 @@ being at least 3 ranks higher in points than in Elo, are coloured in
 green, while under-performing teams, the opposite, are highlighted in
 red.
 
-Man City are dominating the Elo ranking, with 84 more points than
+Man City are dominating the Elo ranking, with 85 more points than
 second-placed Chelsea, which is completely expected from their 18
-successive (often high-scoring) victories. Remembering that this system
-is designed to have a mean rating of 1500, it can be seen that there is
+successive (often high-scoring) victories. It can be seen that there is
 an asymmetric rating distribution, with 13 teams below the mean. This
 emphasises the dominance of the top 6 (Everton in 7th are a long way
 behind 6th placed Arsenal). The competitiveness of the top teams is
-highlighted by the fact that a mere 36 points separates second placed
+highlighted by the fact that a mere 34 points separates second placed
 Chelsea from 5th placed Liverpool, which is less than half the
 difference from Man City to Chelsea.
 
@@ -69,7 +68,7 @@ Played
 <span style="color: black;">Man City</span>
 </td>
 <td style="text-align:center;">
-1812
+1796
 </td>
 <td style="text-align:center;">
 58
@@ -92,7 +91,7 @@ Played
 <span style="color: black;">Chelsea</span>
 </td>
 <td style="text-align:center;">
-1728
+1711
 </td>
 <td style="text-align:center;">
 42
@@ -115,7 +114,7 @@ Played
 <span style="color: black;">Tottenham</span>
 </td>
 <td style="text-align:center;">
-1718
+1695
 </td>
 <td style="text-align:center;">
 37
@@ -138,7 +137,7 @@ Played
 <span style="color: black;">Man Utd</span>
 </td>
 <td style="text-align:center;">
-1701
+1687
 </td>
 <td style="text-align:center;">
 43
@@ -161,7 +160,7 @@ Played
 <span style="color: black;">Liverpool</span>
 </td>
 <td style="text-align:center;">
-1692
+1677
 </td>
 <td style="text-align:center;">
 38
@@ -184,7 +183,7 @@ Played
 <span style="color: black;">Arsenal</span>
 </td>
 <td style="text-align:center;">
-1650
+1633
 </td>
 <td style="text-align:center;">
 37
@@ -207,7 +206,7 @@ Played
 <span style="color: black;">Everton</span>
 </td>
 <td style="text-align:center;">
-1505
+1504
 </td>
 <td style="text-align:center;">
 27
@@ -230,7 +229,7 @@ Played
 <span style="color: black;">Leicester</span>
 </td>
 <td style="text-align:center;">
-1491
+1494
 </td>
 <td style="text-align:center;">
 27
@@ -253,7 +252,7 @@ Played
 <span style="color: black;">Burnley</span>
 </td>
 <td style="text-align:center;">
-1460
+1470
 </td>
 <td style="text-align:center;">
 30
@@ -276,7 +275,7 @@ Played
 <span style="color: red;">Southampton</span>
 </td>
 <td style="text-align:center;">
-1419
+1427
 </td>
 <td style="text-align:center;">
 19
@@ -299,7 +298,7 @@ Played
 <span style="color: red;">Crystal Palace</span>
 </td>
 <td style="text-align:center;">
-1416
+1425
 </td>
 <td style="text-align:center;">
 18
@@ -319,19 +318,19 @@ Played
 12
 </td>
 <td style="text-align:left;">
-<span style="color: red;">West Ham</span>
+<span style="color: red;">Bournemouth</span>
 </td>
 <td style="text-align:center;">
-1408
+1407
+</td>
+<td style="text-align:center;">
+17
 </td>
 <td style="text-align:center;">
 18
 </td>
 <td style="text-align:center;">
-15
-</td>
-<td style="text-align:center;">
-<span style="color: red;">-3</span>
+<span style="color: red;">-6</span>
 </td>
 <td style="text-align:center;">
 20
@@ -345,7 +344,7 @@ Played
 <span style="color: green;">Watford</span>
 </td>
 <td style="text-align:center;">
-1401
+1406
 </td>
 <td style="text-align:center;">
 25
@@ -365,42 +364,19 @@ Played
 14
 </td>
 <td style="text-align:left;">
-<span style="color: red;">Bournemouth</span>
+<span style="color: black;">West Ham</span>
 </td>
 <td style="text-align:center;">
-1391
-</td>
-<td style="text-align:center;">
-17
+1405
 </td>
 <td style="text-align:center;">
 18
 </td>
 <td style="text-align:center;">
-<span style="color: red;">-4</span>
-</td>
-<td style="text-align:center;">
-20
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
 15
 </td>
-<td style="text-align:left;">
-<span style="color: green;">Huddersfield</span>
-</td>
 <td style="text-align:center;">
-1387
-</td>
-<td style="text-align:center;">
-23
-</td>
-<td style="text-align:center;">
-11
-</td>
-<td style="text-align:center;">
-<span style="color: green;">4</span>
+<span style="color: black;">-1</span>
 </td>
 <td style="text-align:center;">
 20
@@ -414,7 +390,7 @@ Played
 <span style="color: black;">Stoke</span>
 </td>
 <td style="text-align:center;">
-1387
+1395
 </td>
 <td style="text-align:center;">
 20
@@ -431,13 +407,36 @@ Played
 </tr>
 <tr>
 <td style="text-align:left;">
+16
+</td>
+<td style="text-align:left;">
+<span style="color: green;">Huddersfield</span>
+</td>
+<td style="text-align:center;">
+1387
+</td>
+<td style="text-align:center;">
+23
+</td>
+<td style="text-align:center;">
+11
+</td>
+<td style="text-align:center;">
+<span style="color: green;">5</span>
+</td>
+<td style="text-align:center;">
+20
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
 17
 </td>
 <td style="text-align:left;">
 <span style="color: black;">West Brom</span>
 </td>
 <td style="text-align:center;">
-1376
+1380
 </td>
 <td style="text-align:center;">
 15
@@ -460,7 +459,7 @@ Played
 <span style="color: green;">Brighton</span>
 </td>
 <td style="text-align:center;">
-1364
+1375
 </td>
 <td style="text-align:center;">
 21
@@ -483,7 +482,7 @@ Played
 <span style="color: black;">Swansea</span>
 </td>
 <td style="text-align:center;">
-1354
+1366
 </td>
 <td style="text-align:center;">
 13
@@ -506,7 +505,7 @@ Played
 <span style="color: green;">Newcastle</span>
 </td>
 <td style="text-align:center;">
-1340
+1357
 </td>
 <td style="text-align:center;">
 18
@@ -626,10 +625,11 @@ inevitability in games between a top-6 and a bottom-14 team, although
 looking at it from a more positive perspective it allows for potentially
 exciting games of football whenever the top-6 play each other. Man
 City's fantastic season is shown here as they started the season ranked
-3rd after Chelsea and Spurs, and overtook Spurs by the start of November
-and never looked back, while Spurs started to slide down the table. From
-my own perspective, I'm heartened to see Liverpool's improvement
-following their 3-0 away win at Stoke at the end of November.
+3rd after Chelsea and Spurs, but overtook of them by the start of
+October and never looked back, while Spurs started to slide down the
+table. From my own perspective, I'm heartened to see Liverpool's
+improvement following their 3-0 away win at Stoke at the end of
+November.
 
 Looking at the bottom of the ratings, we can see Newcastle,
 Huddersfield, and Brighton starting the season at 1350 Elo, the lowest
@@ -643,7 +643,7 @@ going on a losing run from mid-November.
 The table below displays the change in Elo across the half-season so
 far, once again demonstrating Man City's superiority, having gained more
 than double the number of rating points of the second most improved team
-(Man Utd). Swansea's dismal season is shown here, having lost 73 points
+(Man Utd). Swansea's dismal season is shown here, having lost 72 points
 over the course of the season.
 
 <table class="table table-striped table-hover table-condensed table-responsive" style="width: auto !important; margin-left: auto; margin-right: auto;">
@@ -666,10 +666,10 @@ $\Delta elo$
 Man City
 </td>
 <td style="text-align:center;">
-1812
+1796
 </td>
 <td style="text-align:center;">
-139
+145
 </td>
 </tr>
 <tr>
@@ -677,10 +677,10 @@ Man City
 Man Utd
 </td>
 <td style="text-align:center;">
-1701
+1687
 </td>
 <td style="text-align:center;">
-71
+70
 </td>
 </tr>
 <tr>
@@ -688,10 +688,10 @@ Man Utd
 Liverpool
 </td>
 <td style="text-align:center;">
-1692
+1677
 </td>
 <td style="text-align:center;">
-68
+59
 </td>
 </tr>
 <tr>
@@ -699,10 +699,10 @@ Liverpool
 Burnley
 </td>
 <td style="text-align:center;">
-1460
+1470
 </td>
 <td style="text-align:center;">
-54
+56
 </td>
 </tr>
 <tr>
@@ -713,7 +713,7 @@ Huddersfield
 1387
 </td>
 <td style="text-align:center;">
-37
+29
 </td>
 </tr>
 <tr>
@@ -721,10 +721,10 @@ Huddersfield
 Chelsea
 </td>
 <td style="text-align:center;">
-1728
+1711
 </td>
 <td style="text-align:center;">
-24
+17
 </td>
 </tr>
 <tr>
@@ -732,32 +732,10 @@ Chelsea
 Brighton
 </td>
 <td style="text-align:center;">
-1364
+1375
 </td>
 <td style="text-align:center;">
-14
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Leicester
-</td>
-<td style="text-align:center;">
-1491
-</td>
-<td style="text-align:center;">
-10
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-Arsenal
-</td>
-<td style="text-align:center;">
-1650
-</td>
-<td style="text-align:center;">
-7
+17
 </td>
 </tr>
 <tr>
@@ -765,21 +743,32 @@ Arsenal
 Watford
 </td>
 <td style="text-align:center;">
-1401
+1406
 </td>
 <td style="text-align:center;">
-7
+11
 </td>
 </tr>
 <tr>
 <td style="text-align:left;">
-Tottenham
+Arsenal
 </td>
 <td style="text-align:center;">
-1718
+1633
 </td>
 <td style="text-align:center;">
-1
+9
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Leicester
+</td>
+<td style="text-align:center;">
+1494
+</td>
+<td style="text-align:center;">
+8
 </td>
 </tr>
 <tr>
@@ -787,10 +776,21 @@ Tottenham
 Newcastle
 </td>
 <td style="text-align:center;">
-1340
+1357
 </td>
 <td style="text-align:center;">
--10
+-1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Tottenham
+</td>
+<td style="text-align:center;">
+1695
+</td>
+<td style="text-align:center;">
+-7
 </td>
 </tr>
 <tr>
@@ -798,10 +798,10 @@ Newcastle
 Crystal Palace
 </td>
 <td style="text-align:center;">
-1416
+1425
 </td>
 <td style="text-align:center;">
--27
+-26
 </td>
 </tr>
 <tr>
@@ -809,10 +809,10 @@ Crystal Palace
 Everton
 </td>
 <td style="text-align:center;">
-1505
+1504
 </td>
 <td style="text-align:center;">
--39
+-40
 </td>
 </tr>
 <tr>
@@ -820,32 +820,10 @@ Everton
 Bournemouth
 </td>
 <td style="text-align:center;">
-1391
+1407
 </td>
 <td style="text-align:center;">
--47
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-West Ham
-</td>
-<td style="text-align:center;">
-1408
-</td>
-<td style="text-align:center;">
--54
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-West Brom
-</td>
-<td style="text-align:center;">
-1376
-</td>
-<td style="text-align:center;">
--58
+-42
 </td>
 </tr>
 <tr>
@@ -853,10 +831,10 @@ West Brom
 Stoke
 </td>
 <td style="text-align:center;">
-1387
+1395
 </td>
 <td style="text-align:center;">
--59
+-54
 </td>
 </tr>
 <tr>
@@ -864,10 +842,32 @@ Stoke
 Southampton
 </td>
 <td style="text-align:center;">
-1419
+1427
 </td>
 <td style="text-align:center;">
--65
+-56
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+West Ham
+</td>
+<td style="text-align:center;">
+1405
+</td>
+<td style="text-align:center;">
+-61
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+West Brom
+</td>
+<td style="text-align:center;">
+1380
+</td>
+<td style="text-align:center;">
+-62
 </td>
 </tr>
 <tr>
@@ -875,10 +875,10 @@ Southampton
 Swansea
 </td>
 <td style="text-align:center;">
-1354
+1366
 </td>
 <td style="text-align:center;">
--73
+-72
 </td>
 </tr>
 </tbody>
@@ -900,11 +900,11 @@ comparable.
 ### La Liga
 
 As with the Premier League, the league is effectively grouped into 2,
-with the team in 3rd separated from the remaining 17 teams by 161
-points, and only 246 points separating the 4th place team from last. By
+with the team in 3rd separated from the remaining 17 teams by 126
+points, and only 255 points separating the 4th place team from last. By
 calculating the standard deviation of Elo, we get a measure of the
 spread of skill in the league, with a more competitive league having a
-smaller skill range. This value is 154 for the Premier League and 146
+smaller skill range. This value is 142 for the Premier League and 133
 for La Liga, which isn't a large difference.
 
 There are also some discrepancies between the Elo ranking and the actual
@@ -947,7 +947,7 @@ Played
 <span style="color: black;">Barcelona</span>
 </td>
 <td style="text-align:center;">
-1870
+1837
 </td>
 <td style="text-align:center;">
 45
@@ -970,7 +970,7 @@ Played
 <span style="color: black;">Real Madrid</span>
 </td>
 <td style="text-align:center;">
-1758
+1738
 </td>
 <td style="text-align:center;">
 31
@@ -993,7 +993,7 @@ Played
 <span style="color: black;">Atletico Madrid</span>
 </td>
 <td style="text-align:center;">
-1730
+1707
 </td>
 <td style="text-align:center;">
 36
@@ -1016,7 +1016,7 @@ Played
 <span style="color: black;">Valencia</span>
 </td>
 <td style="text-align:center;">
-1569
+1581
 </td>
 <td style="text-align:center;">
 34
@@ -1039,7 +1039,7 @@ Played
 <span style="color: black;">Villarreal</span>
 </td>
 <td style="text-align:center;">
-1568
+1554
 </td>
 <td style="text-align:center;">
 27
@@ -1062,7 +1062,7 @@ Played
 <span style="color: black;">Sevilla</span>
 </td>
 <td style="text-align:center;">
-1564
+1544
 </td>
 <td style="text-align:center;">
 29
@@ -1085,7 +1085,7 @@ Played
 <span style="color: red;">Athletic Bilbao</span>
 </td>
 <td style="text-align:center;">
-1549
+1534
 </td>
 <td style="text-align:center;">
 21
@@ -1128,19 +1128,19 @@ Played
 9
 </td>
 <td style="text-align:left;">
-<span style="color: black;">Celta Vigo</span>
+<span style="color: black;">Eibar</span>
 </td>
 <td style="text-align:center;">
-1489
+1492
 </td>
 <td style="text-align:center;">
-21
+24
 </td>
 <td style="text-align:center;">
-11
+7
 </td>
 <td style="text-align:center;">
-<span style="color: black;">-2</span>
+<span style="color: black;">2</span>
 </td>
 <td style="text-align:center;">
 17
@@ -1151,19 +1151,19 @@ Played
 10
 </td>
 <td style="text-align:left;">
-<span style="color: green;">Eibar</span>
+<span style="color: black;">Celta Vigo</span>
 </td>
 <td style="text-align:center;">
-1474
+1488
 </td>
 <td style="text-align:center;">
-24
+21
 </td>
 <td style="text-align:center;">
-7
+11
 </td>
 <td style="text-align:center;">
-<span style="color: green;">3</span>
+<span style="color: black;">-1</span>
 </td>
 <td style="text-align:center;">
 17
@@ -1177,7 +1177,7 @@ Played
 <span style="color: red;">Espanyol</span>
 </td>
 <td style="text-align:center;">
-1452
+1455
 </td>
 <td style="text-align:center;">
 17
@@ -1200,7 +1200,7 @@ Played
 <span style="color: black;">Leganes</span>
 </td>
 <td style="text-align:center;">
-1441
+1450
 </td>
 <td style="text-align:center;">
 21
@@ -1220,19 +1220,19 @@ Played
 13
 </td>
 <td style="text-align:left;">
-<span style="color: red;">Alaves</span>
+<span style="color: green;">Getafe</span>
 </td>
 <td style="text-align:center;">
-1417
+1434
 </td>
 <td style="text-align:center;">
-15
+23
 </td>
 <td style="text-align:center;">
-17
+8
 </td>
 <td style="text-align:center;">
-<span style="color: red;">-4</span>
+<span style="color: green;">5</span>
 </td>
 <td style="text-align:center;">
 17
@@ -1243,19 +1243,19 @@ Played
 14
 </td>
 <td style="text-align:left;">
-<span style="color: green;">Getafe</span>
+<span style="color: red;">Alaves</span>
 </td>
 <td style="text-align:center;">
-1415
+1423
 </td>
 <td style="text-align:center;">
-23
+15
 </td>
 <td style="text-align:center;">
-8
+17
 </td>
 <td style="text-align:center;">
-<span style="color: green;">6</span>
+<span style="color: red;">-3</span>
 </td>
 <td style="text-align:center;">
 17
@@ -1266,33 +1266,10 @@ Played
 15
 </td>
 <td style="text-align:left;">
-<span style="color: red;">Malaga</span>
-</td>
-<td style="text-align:center;">
-1396
-</td>
-<td style="text-align:center;">
-11
-</td>
-<td style="text-align:center;">
-19
-</td>
-<td style="text-align:center;">
-<span style="color: red;">-4</span>
-</td>
-<td style="text-align:center;">
-17
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-16
-</td>
-<td style="text-align:left;">
 <span style="color: green;">Real Betis</span>
 </td>
 <td style="text-align:center;">
-1390
+1403
 </td>
 <td style="text-align:center;">
 21
@@ -1301,10 +1278,33 @@ Played
 11
 </td>
 <td style="text-align:center;">
-<span style="color: green;">5</span>
+<span style="color: green;">4</span>
 </td>
 <td style="text-align:center;">
 16
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+16
+</td>
+<td style="text-align:left;">
+<span style="color: red;">Malaga</span>
+</td>
+<td style="text-align:center;">
+1400
+</td>
+<td style="text-align:center;">
+11
+</td>
+<td style="text-align:center;">
+19
+</td>
+<td style="text-align:center;">
+<span style="color: red;">-3</span>
+</td>
+<td style="text-align:center;">
+17
 </td>
 </tr>
 <tr>
@@ -1315,7 +1315,7 @@ Played
 <span style="color: green;">Girona</span>
 </td>
 <td style="text-align:center;">
-1385
+1393
 </td>
 <td style="text-align:center;">
 23
@@ -1335,33 +1335,10 @@ Played
 18
 </td>
 <td style="text-align:left;">
-<span style="color: black;">La Coruna</span>
-</td>
-<td style="text-align:center;">
-1351
-</td>
-<td style="text-align:center;">
-12
-</td>
-<td style="text-align:center;">
-18
-</td>
-<td style="text-align:center;">
-<span style="color: black;">0</span>
-</td>
-<td style="text-align:center;">
-16
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-19
-</td>
-<td style="text-align:left;">
 <span style="color: green;">Levante</span>
 </td>
 <td style="text-align:center;">
-1350
+1369
 </td>
 <td style="text-align:center;">
 18
@@ -1370,10 +1347,33 @@ Played
 15
 </td>
 <td style="text-align:center;">
-<span style="color: green;">4</span>
+<span style="color: green;">3</span>
 </td>
 <td style="text-align:center;">
 17
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+19
+</td>
+<td style="text-align:left;">
+<span style="color: black;">La Coruna</span>
+</td>
+<td style="text-align:center;">
+1363
+</td>
+<td style="text-align:center;">
+12
+</td>
+<td style="text-align:center;">
+18
+</td>
+<td style="text-align:center;">
+<span style="color: black;">1</span>
+</td>
+<td style="text-align:center;">
+16
 </td>
 </tr>
 <tr>
@@ -1384,7 +1384,7 @@ Played
 <span style="color: black;">Las Palmas</span>
 </td>
 <td style="text-align:center;">
-1323
+1326
 </td>
 <td style="text-align:center;">
 11
@@ -1405,9 +1405,9 @@ Played
 ### Serie A
 
 Serie A is characterized by 2 dominant teams, Juventus and Napoli, who
-only have 3 Elo point separating them (and 1 point). Roma also look
-strong but the gap to the 4th place team is 120 points. The standard
-deviation of Elo for Serie A is 162, which is the highest of the
+only have 5 Elo points separating them (and 1 point). Roma also look
+strong but the gap to the 4th place team is 96 points. The standard
+deviation of Elo for Serie A is 150, which is the highest of the
 European leagues, suggesting that there is greater variability in team
 skill.
 
@@ -1455,7 +1455,7 @@ Played
 <span style="color: black;">Juventus</span>
 </td>
 <td style="text-align:center;">
-1803
+1779
 </td>
 <td style="text-align:center;">
 44
@@ -1478,7 +1478,7 @@ Played
 <span style="color: black;">Napoli</span>
 </td>
 <td style="text-align:center;">
-1800
+1774
 </td>
 <td style="text-align:center;">
 45
@@ -1501,7 +1501,7 @@ Played
 <span style="color: black;">Roma</span>
 </td>
 <td style="text-align:center;">
-1753
+1730
 </td>
 <td style="text-align:center;">
 38
@@ -1524,7 +1524,7 @@ Played
 <span style="color: black;">Inter</span>
 </td>
 <td style="text-align:center;">
-1633
+1634
 </td>
 <td style="text-align:center;">
 37
@@ -1547,7 +1547,7 @@ Played
 <span style="color: black;">Lazio</span>
 </td>
 <td style="text-align:center;">
-1619
+1617
 </td>
 <td style="text-align:center;">
 36
@@ -1570,7 +1570,7 @@ Played
 <span style="color: black;">Atalanta</span>
 </td>
 <td style="text-align:center;">
-1592
+1575
 </td>
 <td style="text-align:center;">
 27
@@ -1593,7 +1593,7 @@ Played
 <span style="color: black;">Fiorentina</span>
 </td>
 <td style="text-align:center;">
-1566
+1553
 </td>
 <td style="text-align:center;">
 26
@@ -1616,7 +1616,7 @@ Played
 <span style="color: black;">Torino</span>
 </td>
 <td style="text-align:center;">
-1521
+1516
 </td>
 <td style="text-align:center;">
 24
@@ -1636,10 +1636,10 @@ Played
 9
 </td>
 <td style="text-align:left;">
-<span style="color: black;">Milan</span>
+<span style="color: black;">Udinese</span>
 </td>
 <td style="text-align:center;">
-1496
+1499
 </td>
 <td style="text-align:center;">
 24
@@ -1651,7 +1651,7 @@ Played
 <span style="color: black;">0</span>
 </td>
 <td style="text-align:center;">
-18
+17
 </td>
 </tr>
 <tr>
@@ -1662,7 +1662,7 @@ Played
 <span style="color: green;">Sampdoria</span>
 </td>
 <td style="text-align:center;">
-1490
+1492
 </td>
 <td style="text-align:center;">
 27
@@ -1682,10 +1682,10 @@ Played
 11
 </td>
 <td style="text-align:left;">
-<span style="color: black;">Udinese</span>
+<span style="color: black;">Milan</span>
 </td>
 <td style="text-align:center;">
-1478
+1483
 </td>
 <td style="text-align:center;">
 24
@@ -1697,7 +1697,7 @@ Played
 <span style="color: black;">2</span>
 </td>
 <td style="text-align:center;">
-17
+18
 </td>
 </tr>
 <tr>
@@ -1708,7 +1708,7 @@ Played
 <span style="color: green;">Bologna</span>
 </td>
 <td style="text-align:center;">
-1438
+1454
 </td>
 <td style="text-align:center;">
 24
@@ -1731,7 +1731,7 @@ Played
 <span style="color: black;">Sassuolo</span>
 </td>
 <td style="text-align:center;">
-1425
+1426
 </td>
 <td style="text-align:center;">
 20
@@ -1774,10 +1774,10 @@ Played
 15
 </td>
 <td style="text-align:left;">
-<span style="color: black;">Genoa</span>
+<span style="color: black;">Cagliari</span>
 </td>
 <td style="text-align:center;">
-1388
+1393
 </td>
 <td style="text-align:center;">
 17
@@ -1797,10 +1797,10 @@ Played
 16
 </td>
 <td style="text-align:left;">
-<span style="color: black;">Cagliari</span>
+<span style="color: black;">Genoa</span>
 </td>
 <td style="text-align:center;">
-1380
+1391
 </td>
 <td style="text-align:center;">
 17
@@ -1823,7 +1823,7 @@ Played
 <span style="color: black;">Crotone</span>
 </td>
 <td style="text-align:center;">
-1338
+1353
 </td>
 <td style="text-align:center;">
 15
@@ -1846,7 +1846,7 @@ Played
 <span style="color: black;">SPAL</span>
 </td>
 <td style="text-align:center;">
-1327
+1343
 </td>
 <td style="text-align:center;">
 15
@@ -1869,7 +1869,7 @@ Played
 <span style="color: black;">Verona</span>
 </td>
 <td style="text-align:center;">
-1322
+1340
 </td>
 <td style="text-align:center;">
 13
@@ -1892,7 +1892,7 @@ Played
 <span style="color: black;">Benevento</span>
 </td>
 <td style="text-align:center;">
-1222
+1237
 </td>
 <td style="text-align:center;">
 1
@@ -1914,7 +1914,7 @@ Played
 
 The German league looks to be the most competitive, with the leaders
 having the lowest Elo of these 4 leagues and bottom-placed team having
-the highest. This is reflected in the standard deviation of Elo at 107,
+the highest. This is reflected in the standard deviation of Elo at 98,
 far lower than the other leagues. A similar finding has been [identifed
 previously](http://stuartlacy.co.uk/2016/07/23/is-la-liga-the-most-predictable-european-football-league/),
 where the bookies were less accurate at predicting Bundesliga matches
@@ -1955,7 +1955,7 @@ Played
 <span style="color: black;">Bayern Munich</span>
 </td>
 <td style="text-align:center;">
-1793
+1780
 </td>
 <td style="text-align:center;">
 41
@@ -1978,7 +1978,7 @@ Played
 <span style="color: black;">Borussia Dortmund</span>
 </td>
 <td style="text-align:center;">
-1626
+1623
 </td>
 <td style="text-align:center;">
 28
@@ -2001,7 +2001,7 @@ Played
 <span style="color: black;">Bayern Leverkusen</span>
 </td>
 <td style="text-align:center;">
-1575
+1573
 </td>
 <td style="text-align:center;">
 28
@@ -2024,7 +2024,7 @@ Played
 <span style="color: red;">Hoffenheim</span>
 </td>
 <td style="text-align:center;">
-1558
+1559
 </td>
 <td style="text-align:center;">
 26
@@ -2047,7 +2047,7 @@ Played
 <span style="color: green;">Schalke</span>
 </td>
 <td style="text-align:center;">
-1553
+1554
 </td>
 <td style="text-align:center;">
 30
@@ -2070,7 +2070,7 @@ Played
 <span style="color: green;">Leipzig</span>
 </td>
 <td style="text-align:center;">
-1550
+1545
 </td>
 <td style="text-align:center;">
 28
@@ -2093,7 +2093,7 @@ Played
 <span style="color: green;">Borussia Moenchengladbach</span>
 </td>
 <td style="text-align:center;">
-1525
+1522
 </td>
 <td style="text-align:center;">
 28
@@ -2116,7 +2116,7 @@ Played
 <span style="color: black;">Augsburg</span>
 </td>
 <td style="text-align:center;">
-1498
+1504
 </td>
 <td style="text-align:center;">
 24
@@ -2136,10 +2136,33 @@ Played
 9
 </td>
 <td style="text-align:left;">
+<span style="color: black;">Hertha</span>
+</td>
+<td style="text-align:center;">
+1480
+</td>
+<td style="text-align:center;">
+24
+</td>
+<td style="text-align:center;">
+9
+</td>
+<td style="text-align:center;">
+<span style="color: black;">0</span>
+</td>
+<td style="text-align:center;">
+17
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+9
+</td>
+<td style="text-align:left;">
 <span style="color: black;">Ein Frankfurt</span>
 </td>
 <td style="text-align:center;">
-1477
+1480
 </td>
 <td style="text-align:center;">
 26
@@ -2156,36 +2179,13 @@ Played
 </tr>
 <tr>
 <td style="text-align:left;">
-10
-</td>
-<td style="text-align:left;">
-<span style="color: black;">Hertha</span>
-</td>
-<td style="text-align:center;">
-1474
-</td>
-<td style="text-align:center;">
-24
-</td>
-<td style="text-align:center;">
-9
-</td>
-<td style="text-align:center;">
-<span style="color: black;">1</span>
-</td>
-<td style="text-align:center;">
-17
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
 11
 </td>
 <td style="text-align:left;">
 <span style="color: black;">Wolfsburg</span>
 </td>
 <td style="text-align:center;">
-1466
+1475
 </td>
 <td style="text-align:center;">
 19
@@ -2208,7 +2208,7 @@ Played
 <span style="color: red;">Werder Bremen</span>
 </td>
 <td style="text-align:center;">
-1451
+1463
 </td>
 <td style="text-align:center;">
 15
@@ -2228,39 +2228,16 @@ Played
 13
 </td>
 <td style="text-align:left;">
-<span style="color: black;">Mainz</span>
+<span style="color: black;">Hannover</span>
 </td>
 <td style="text-align:center;">
-1414
+1438
 </td>
 <td style="text-align:center;">
-17
+23
 </td>
 <td style="text-align:center;">
-14
-</td>
-<td style="text-align:center;">
-<span style="color: black;">-1</span>
-</td>
-<td style="text-align:center;">
-17
-</td>
-</tr>
-<tr>
-<td style="text-align:left;">
-14
-</td>
-<td style="text-align:left;">
-<span style="color: black;">Freiburg</span>
-</td>
-<td style="text-align:center;">
-1411
-</td>
-<td style="text-align:center;">
-19
-</td>
-<td style="text-align:center;">
-12
+11
 </td>
 <td style="text-align:center;">
 <span style="color: black;">2</span>
@@ -2271,42 +2248,19 @@ Played
 </tr>
 <tr>
 <td style="text-align:left;">
-15
+14
 </td>
 <td style="text-align:left;">
-<span style="color: green;">Hannover</span>
+<span style="color: black;">Mainz</span>
 </td>
 <td style="text-align:center;">
-1393
-</td>
-<td style="text-align:center;">
-23
-</td>
-<td style="text-align:center;">
-11
-</td>
-<td style="text-align:center;">
-<span style="color: green;">4</span>
+1418
 </td>
 <td style="text-align:center;">
 17
 </td>
-</tr>
-<tr>
-<td style="text-align:left;">
-16
-</td>
-<td style="text-align:left;">
-<span style="color: black;">Hamburg</span>
-</td>
 <td style="text-align:center;">
-1375
-</td>
-<td style="text-align:center;">
-15
-</td>
-<td style="text-align:center;">
-16
+14
 </td>
 <td style="text-align:center;">
 <span style="color: black;">0</span>
@@ -2317,13 +2271,59 @@ Played
 </tr>
 <tr>
 <td style="text-align:left;">
+15
+</td>
+<td style="text-align:left;">
+<span style="color: black;">Hamburg</span>
+</td>
+<td style="text-align:center;">
+1413
+</td>
+<td style="text-align:center;">
+15
+</td>
+<td style="text-align:center;">
 16
+</td>
+<td style="text-align:center;">
+<span style="color: black;">-1</span>
+</td>
+<td style="text-align:center;">
+17
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+15
+</td>
+<td style="text-align:left;">
+<span style="color: green;">Freiburg</span>
+</td>
+<td style="text-align:center;">
+1413
+</td>
+<td style="text-align:center;">
+19
+</td>
+<td style="text-align:center;">
+12
+</td>
+<td style="text-align:center;">
+<span style="color: green;">3</span>
+</td>
+<td style="text-align:center;">
+17
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+17
 </td>
 <td style="text-align:left;">
 <span style="color: black;">Koln</span>
 </td>
 <td style="text-align:center;">
-1375
+1382
 </td>
 <td style="text-align:center;">
 6
@@ -2332,7 +2332,7 @@ Played
 18
 </td>
 <td style="text-align:center;">
-<span style="color: black;">-2</span>
+<span style="color: black;">-1</span>
 </td>
 <td style="text-align:center;">
 17
@@ -2346,7 +2346,7 @@ Played
 <span style="color: green;">Stuttgart</span>
 </td>
 <td style="text-align:center;">
-1370
+1380
 </td>
 <td style="text-align:center;">
 17
