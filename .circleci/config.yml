@@ -20,6 +20,7 @@ jobs:
                 # Uncomment these lines if add custom CSS, JS and downloads, and exclude css and js from above main call with --exclude 'js' --exclude 'css' --exclude 'downloads'
                 # aws s3 sync --cache-control "max-age=2592000" --acl "public-read" --sse "AES256" public/css/ s3://stuartlacy.co.uk/css/
                 # aws s3 sync --cache-control "max-age=2592000" --acl "public-read" --sse "AES256" public/js/ s3://stuartlacy.co.uk/js/
+                
                 # Downloads binaries, not part of repo - cache at edge for a year --cache-control "max-age=31536000"
-                #aws s3 sync --cache-control "max-age=31536000" --acl "public-read" --sse "AES256" static/downloads/ s3://stuartlacy.co.uk/downloads/
+                aws s3 sync --cache-control "max-age=31536000" --acl "public-read" --sse "AES256" static/downloads/ s3://stuartlacy.co.uk/downloads/
             fi
