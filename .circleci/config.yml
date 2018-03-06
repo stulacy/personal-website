@@ -34,6 +34,9 @@ jobs:
                   
                   # Downloads binaries, not part of repo - cache at edge for a year --cache-control "max-age=31536000"
                   ~/.local/bin/aws s3 sync --cache-control "max-age=31536000" --acl "public-read" --sse "AES256" static/downloads/ s3://stuartlacy.co.uk/downloads/
+
+                  # Invalidate landing page
+                  aws cloudfront create-invalidation --distribution-id EIU0AETUB54UB --paths /index.html /
               fi
                                                                             
 
