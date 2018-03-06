@@ -13,14 +13,13 @@ jobs:
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
                 # Copy over pages - not static js/img/css/downloads
-                aws s3 sync --acl "public-read" --sse "AES256" public/ s3://stuartlacy.co.uk/ --exclude 'img' --exclude 'js' --exclude 'downloads' --exclude 'css' --exclude 'post'
+                aws s3 sync --acl "public-read" --sse "AES256" public/ s3://stuartlacy.co.uk/ --exclude 'img' --exclude 'post'
 
                 # Ensure static files are set to cache forever - cache for a month --cache-control "max-age=2592000"
                 aws s3 sync --cache-control "max-age=2592000" --acl "public-read" --sse "AES256" public/img/ s3://stuartlacy.co.uk/img/
-                # Uncomment these lines if add custom CSS and JS, and exclude css and js from above main call with --exclude 'js' --exclude 'css'
+                # Uncomment these lines if add custom CSS, JS and downloads, and exclude css and js from above main call with --exclude 'js' --exclude 'css' --exclude 'downloads'
                 # aws s3 sync --cache-control "max-age=2592000" --acl "public-read" --sse "AES256" public/css/ s3://stuartlacy.co.uk/css/
                 # aws s3 sync --cache-control "max-age=2592000" --acl "public-read" --sse "AES256" public/js/ s3://stuartlacy.co.uk/js/
-
                 # Downloads binaries, not part of repo - cache at edge for a year --cache-control "max-age=31536000"
-                aws s3 sync --cache-control "max-age=31536000" --acl "public-read" --sse "AES256" static/downloads/ s3://stuartlacy.co.uk/downloads/
+                #aws s3 sync --cache-control "max-age=31536000" --acl "public-read" --sse "AES256" static/downloads/ s3://stuartlacy.co.uk/downloads/
             fi
