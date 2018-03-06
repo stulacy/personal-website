@@ -5,7 +5,10 @@ jobs:
         - image: cibuilds/hugo:0.31.1
     working_directory: ~/project
     steps:
-      - checkout
+      - checkout:
+          post:
+            - git submodule sync
+            - git submodule update --init
       - run:
           name: "Installing aws"
           command: |
