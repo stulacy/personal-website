@@ -2,10 +2,19 @@ version: 2
 jobs:
   build:
     docker:
-      - image: felicianotech/docker-hugo:0.37
+        - image: cgbaker/alpine-hugo-aws
     working_directory: ~/project
     steps:
       - checkout
+      - run:
+          name: "Install dependencies"
+          working_directory: /
+          command: |
+            apt-get -y -qq update
+            apt-get -y -qq install python3.4-dev
+            curl -O https://bootstrap.pypa.io/get-pip.py
+            python3.4 get-pip.py --user
+            pip install awscli --upgrade --user
       - run:
           name: "Run Hugo"
           command: hugo -v
