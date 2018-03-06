@@ -39,7 +39,7 @@ defaultContentLanguageInSubdir = false
   organizations = [ {name="Epidemiology and Cancer Statistics Group, University of York", url="https://www.hmrn.org" } ]
   gravatar = false  # Get your avatar from Gravatar.com? (true/false)
   avatar = "portrait.jpg"  # Specify an avatar image (in `static/img/` folder) or delete value to disable avatar.
-  email = "stuart.lacy@stuartlacy.co.uk"
+  email = "stuart.lacy@gmail.com"
   address = ""
   office_hours = ""
   phone = ""
@@ -142,7 +142,7 @@ defaultContentLanguageInSubdir = false
   [[params.social]]
     icon = "envelope"
     icon_pack = "fa"
-    link = "mailto:stuart.lacy@stuartlacy.co.uk"
+    link = "mailto:stuart.lacy@gmail.com"
 
   [[params.social]]
     icon = "twitter"
