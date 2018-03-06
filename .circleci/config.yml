@@ -2,25 +2,38 @@ version: 2
 jobs:
   build:
     docker:
-        - image: cgbaker/alpine-hugo-aws
+        - image: cibuilds/hugo:0.31.1
     working_directory: ~/project
     steps:
       - checkout
       - run:
+          name: "Installing aws"
+          command: |
+              # TODO Should have these setup correctly as (cached) dependencies
+              apk add --update py-pip python-dev
+              pip install awscli --upgrade --user
+      - run:
           name: "Run Hugo"
-          command: hugo -v
+          command: hugo -v 
+      - run:
+          name: "Test Website"
+          command: htmlproofer src/public --allow-hash-href --check-html --empty-alt-ignore --disable-external
       - deploy:
           command: |
-            if [ "${CIRCLE_BRANCH}" == "master" ]; then
-                # Copy over pages - not static js/img/css/downloads
-                aws s3 sync --acl "public-read" --sse "AES256" public/ s3://stuartlacy.co.uk/ --exclude 'img' --exclude 'post'
+              if [ "${CIRCLE_BRANCH}" == "master" ]; then
+                  # Copy over pages - not static js/img/css/downloads
+                  ~/.local/bin/aws s3 sync --acl "public-read" --sse "AES256" public/ s3://stuartlacy.co.uk/ --exclude 'img' --exclude 'post'
 
-                # Ensure static files are set to cache forever - cache for a month --cache-control "max-age=2592000"
-                aws s3 sync --cache-control "max-age=2592000" --acl "public-read" --sse "AES256" public/img/ s3://stuartlacy.co.uk/img/
-                # Uncomment these lines if add custom CSS, JS and downloads, and exclude css and js from above main call with --exclude 'js' --exclude 'css' --exclude 'downloads'
-                # aws s3 sync --cache-control "max-age=2592000" --acl "public-read" --sse "AES256" public/css/ s3://stuartlacy.co.uk/css/
-                # aws s3 sync --cache-control "max-age=2592000" --acl "public-read" --sse "AES256" public/js/ s3://stuartlacy.co.uk/js/
-                
-                # Downloads binaries, not part of repo - cache at edge for a year --cache-control "max-age=31536000"
-                aws s3 sync --cache-control "max-age=31536000" --acl "public-read" --sse "AES256" static/downloads/ s3://stuartlacy.co.uk/downloads/
-            fi
+                  # Ensure static files are set to cache forever - cache for a month --cache-control "max-age=2592000"
+                  ~/.local/bin/aws s3 sync --cache-control "max-age=2592000" --acl "public-read" --sse "AES256" public/img/ s3://stuartlacy.co.uk/img/
+                  # Uncomment these lines if add custom CSS, JS and downloads, and exclude css and js from above main call with --exclude 'js' --exclude 'css' --exclude 'downloads'
+                  # aws s3 sync --cache-control "max-age=2592000" --acl "public-read" --sse "AES256" public/css/ s3://stuartlacy.co.uk/css/
+                  # aws s3 sync --cache-control "max-age=2592000" --acl "public-read" --sse "AES256" public/js/ s3://stuartlacy.co.uk/js/
+                  
+                  # Downloads binaries, not part of repo - cache at edge for a year --cache-control "max-age=31536000"
+                  ~/.local/bin/aws s3 sync --cache-control "max-age=31536000" --acl "public-read" --sse "AES256" static/downloads/ s3://stuartlacy.co.uk/downloads/
+              fi
+                                                                            
+
+
+
