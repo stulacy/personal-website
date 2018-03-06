@@ -6,9 +6,8 @@ jobs:
     working_directory: ~/project
     steps:
       - checkout:
-          post:
-            - git submodule sync
-            - git submodule update --init
+      - run: git submodule sync
+      - run: git submodule update --init
       - run:
           name: "Installing aws"
           command: |
