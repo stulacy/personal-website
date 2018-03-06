@@ -9,9 +9,6 @@ jobs:
       - run:
           name: "Run Hugo"
           command: hugo -v
-      - run:
-          name: "Test Website"
-          command: htmlproofer ~/project/public --allow-hash-href --check-html --empty-alt-ignore
       - deploy:
           command: |
             if [ "${CIRCLE_BRANCH}" == "master" ]; then
