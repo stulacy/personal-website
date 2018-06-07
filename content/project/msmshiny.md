@@ -3,7 +3,7 @@
 date = "2017-10-05"
 
 # Project title.
-title = "A Multi-State Modelling Shiny app"
+title = "A Multi-State Modelling web app"
 
 # Project summary to display on homepage.
 summary = "A web app built in Shiny to visualise Multi-State Models"
