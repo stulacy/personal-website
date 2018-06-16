@@ -6,7 +6,7 @@ title = "Using echo state networks for classification: A case study in Parkinson
 math = false
 +++
 
-I've just had some of my PhD research on adapting Echo State Networks (ESNs) for identifying Parkinson's disease published. The work describes considerations to be made when applying ESNs to classification problems, with a case study of using them to differentiate between Parkinson's Disease patients and healthy subjects based on a longitudinal positional data source. This post will briefly summarise the work, but in case you're interested the published version is available [at the publisher's website](https://www.sciencedirect.com/science/article/pii/S0933365717303482), while I've uploaded a [preprint here](downloads/lacy_esnparkinsons_aiim_preprint_2018.pdf). There's also free access to the full article [here](https://authors.elsevier.com/a/1WgR13KEGa1e2w) for 50 days.
+I've just had some of my PhD research on adapting Echo State Networks (ESNs) for identifying Parkinson's disease published. The work describes considerations to be made when applying ESNs to classification problems, with a case study of using them to differentiate between Parkinson's Disease patients and healthy subjects based on a longitudinal positional data source. This post will briefly summarise the work, but in case you're interested the published version is available [at the publisher's website](https://www.sciencedirect.com/science/article/pii/S0933365717303482), while I've uploaded a [preprint here](/downloads/lacy_esnparkinsons_aiim_preprint_2018.pdf). There's also free access to the full article [here](https://authors.elsevier.com/a/1WgR13KEGa1e2w) for 50 days.
 
 ## Echo state networks
 
