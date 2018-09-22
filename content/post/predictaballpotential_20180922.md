@@ -78,7 +78,7 @@ highest potential, Everton were second from bottom with 44.8%. This
 suggests a significant difference in fortunes for each team that is
 masked by solely considering standings.
 
-![Last season's potential](/img/predictaballpotential_20180922/potential_lastseaosn.png)
+![Last season's potential](/img/predictaballpotential_20180922/potential_lastseason.png)
 
 Simulating season endings
 -------------------------
