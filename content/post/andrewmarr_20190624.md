@@ -18,14 +18,14 @@ Back in 2012 only just over a quarter of Andrew Marr's guests were women, this f
 ![Overall proportion of guests that are women](/img/andrewmarrequality-20190624/overall_proportion.png)
 
 However, Piers Morgan was suggesting that the BBC is biased in favour of women, how can that be the case?
-Well, the Andrew Marr Show website helpfully indicates who doing the papers reviewer. 
+Well, the Andrew Marr Show website helpfully indicates who is doing the papers review. 
 If we plot the same values as before but this time separating guests into either Main Guests or Newspaper Reviewers, we see a markedly different story.
 While yes, since 2015 women have been over represented on average in the newspaper review section, this pales in comparison with the main guests where even now women only make up around 30% of the invitees, and the flat trend hardly suggests this will change anytime soon.
 
 ![Proportion of guests that are women grouped by show role](/img/andrewmarrequality-20190624/stratified_proportion.png)
 
-The most obvious explanation for this difference is that these two groups represent different populations. I.e. the newspaper reviewers will comprise more a large amount of journalists, while the main guests are typically those in higher levels of power, such as those involved in politics where women are less likely to reach the highest ranks (32% of all MPs are female as of 2017).
+The most obvious explanation for this difference is that these two groups represent different populations. I.e. journalists will often be invited on to review the newspapers, while the main guests are typically those in higher levels of power, such as those involved in politics where women are less likely to reach the highest ranks (32% of all MPs are female as of 2017).
 
 Of course, further research would be needed to thoroughly investigate such claims, but I hope this brief post has highlighted the dangers of summarising a large amount of data from a complex issue with many different factors into a single statistic.
-I could easily produce my own cherry-picked stats here, such as the fact that out of 334 shows in this time-frame there has only been 1 with an all-women main lineup versus 93 all-men, but in general it's best to view as much raw data as possible to place any figures in context - unless there was an apriori hypothesis made.
+I could easily produce my own cherry-picked stats here, such as the fact that out of 334 shows in this time-frame there has only been 1 with an all-female main lineup versus 93 all-male, but in general it's best to view as much raw data as possible to place any figures in context.
 
