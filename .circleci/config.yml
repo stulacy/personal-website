@@ -20,7 +20,7 @@ jobs:
           command: hugo -v 
       - run:
           name: "Test Website"
-          command: htmlproofer src/public --allow-hash-href --check-html --empty-alt-ignore --disable-external
+          command: htmlproofer public --allow-hash-href --check-html --empty-alt-ignore --disable-external
       - deploy:
           command: |
               if [ "${CIRCLE_BRANCH}" == "master" ]; then
