@@ -1,5 +1,5 @@
 +++
-date = 2019-08-06
+date = 2019-08-07
 draft = false
 tags = ["football", "Predictaball", "machine learning"]
 title = "Optimising a football team rating system for match prediction accuracy"
