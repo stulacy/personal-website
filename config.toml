@@ -35,8 +35,8 @@ defaultContentLanguageInSubdir = false
   font = 'classic'
 
   name = "Stuart Lacy"
-  role = "Research Fellow"
-  organizations = [ {name="Epidemiology and Cancer Statistics Group, University of York", url="https://www.hmrn.org" } ]
+  role = "Data Scientist"
+  organizations = [ {name="Wolfson Atmospheric Chemistry Laboratories, University of York", url="https://www.york.ac.uk/chemistry/research/wacl/" } ]
   gravatar = false  # Get your avatar from Gravatar.com? (true/false)
   avatar = "portrait.jpg"  # Specify an avatar image (in `static/img/` folder) or delete value to disable avatar.
   email = "stuart.lacy@gmail.com"

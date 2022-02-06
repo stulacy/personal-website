@@ -1,7 +1,7 @@
 +++
 # About/Biography widget.
 
-date = "2016-04-20T00:00:00"
+date = "2022-02-06T00:00:00"
 draft = false
 
 widget = "about"
@@ -13,6 +13,8 @@ weight = 5
 [interests]
   interests = [
     "Machine Learning",
+    "Bayesian statistics",
+    "Air Quality",
     "Health Informatics",
     "Artificial Intelligence"
   ]
@@ -32,5 +34,8 @@ weight = 5
 
 # Biography
 
-I'm a Research Fellow in the Epidemiology and Cancer Statistics Group at the University of York. My research is focused on applying machine learning techniques to health informatics and I'm currently working on developing complex predictive survival and multi-state models of haematological malignancies. I have an interest in software development, and in particular developing statistical tools such as packages for R. I also dabble in sports statistics.
-
+I'm a data scientist interested in applying machine learning to some of the biggest challenges facing society.
+In my current role I work on high resolution air quality measurements recorded from low-cost sensors.
+Previously I have applied machine learning to form complex survival models of haematological malignancies and analysed movement disorder data from neurodegenerative conditions.
+I also have an interest in software development, and in particular developing tools for others to use, such as statistical packages in R and interactive dashbaords.
+My main tools are R, probabilistic machine learning in Stan, and PyTorch.
