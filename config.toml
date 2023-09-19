@@ -1,6 +1,6 @@
 baseurl = "/"  # End your URL with a `/` trailing slash, e.g. `https://example.com/`.
 title = "Stuart Lacy"
-copyright = "&copy; 2019 Stuart Lacy"
+copyright = "&copy; 2023 Stuart Lacy"
 theme = "academic"
 enableEmoji = false
 footnotereturnlinkcontents = "<sup>^</sup>"
@@ -207,3 +207,26 @@ defaultContentLanguageInSubdir = false
 # Configure the English version of the website.
 [Languages.en]
   languageCode = "en-uk"
+
+[deployment]
+
+[[deployment.targets]]
+name = "S3"
+URL = "s3://stuartlacy.co.uk"
+cloudFrontDistributionID = "EIU0AETUB54UB"
+
+[[deployment.matchers]]
+# Cache static assets for 1 month.
+pattern = "^.+\\.(js|css|svg|ttf)$"
+cacheControl = "max-age=2592000, no-transform, public"
+gzip = true
+
+[[deployment.matchers]]
+pattern = "^.+\\.(png|jpg)$"
+cacheControl = "max-age=2592000, no-transform, public"
+gzip = false
+
+[[deployment.matchers]]
+pattern = "downloads/.+"
+cacheControl = "max-age=31536000, no-transform, public"
+gzip = true

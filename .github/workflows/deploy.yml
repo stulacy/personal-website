@@ -1,0 +1,30 @@
+name: "Build and push new content"
+on: 
+  push:
+    branches: ["master"]
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  content:
+    runs-on: ubuntu-latest
+    env:
+         HUGO_VERSION: 0.56.0
+    steps:
+    - name: Install Hugo CLI
+      run: |
+        wget -O ${{ runner.temp }}/hugo.deb https://github.com/gohugoio/hugo/releases/download/v${HUGO_VERSION}/hugo_extended_${HUGO_VERSION}_Linux-64bit.deb \
+        && dpkg -i ${{ runner.temp }}/hugo.deb
+    - uses: actions/checkout@v3
+      with:
+        submodules: recursive
+    - name: Set AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        aws-region: eu-west-2
+    - name: Build site
+      run: hugo --minify
+    - name: Push to S3
+      run: hugo deploy --invalidateCDN
