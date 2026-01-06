@@ -1,0 +1,19 @@
+div.code-copy-outer-scaffold {
+  position:relative
+}
+details {
+  margin-bottom:1em
+}
+details[show] {
+  margin-bottom:0
+}
+details>summary {
+  color:rgba(33,37,41,.75)
+}
+details>summary>p:only-child {
+  display:inline
+}
+summary {
+  display:list-item;
+  cursor:pointer
+}
