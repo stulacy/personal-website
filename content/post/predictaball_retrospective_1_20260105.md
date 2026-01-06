@@ -14,7 +14,7 @@ This is the first in a retrospective series of posts looking at the evolution of
 I've been fortunate to work in a wide variety of domains, exposing me to a range of statistical paradigms and perspectives, which have been reflected in the models used in Predictaball.
 At the end of the series I'll do a full comparison of all the algorithms too, as this is something I've never done before but have been interested in for a long time.
 
-This first post will be focused on Bayesian statistics, and in particular hierarchical regression models.
+This first post will be focused on Bayesian statistics, and in particular hierarchical regression models, which were the models behind Predictaball for the 2016-2017 season.
 
 # Setup
 
@@ -1047,6 +1047,7 @@ $$\log(\lambda\_{\text{away},i}) = \alpha\_{\text{away},\text{leagues[i]}} + \ps
 
 
 The full Stan code is displayed below.
+This Poisson model was never actually used directly in the live Predictaball website, but a modified version of it was, as will be explained in the next post.
 
 ```
 data {
