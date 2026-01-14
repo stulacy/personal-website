@@ -1,27 +1,12 @@
 +++
 date = 2026-01-09
 draft = false
-tags = ["Predictaball", "Bayesian statistics"]
+tags = ["Predictaball", "football", "elo"]
 title = "Predictaball retrospective part 2 - Elo rating system"
 math = true
 +++
 
 <link rel="stylesheet" href="/css/quarto.css" />
-
-<div class="cell">
-<details class="code-fold">
-<summary>
-  Show the code
-</summary>
-<div class="code-copy-outer-scaffold">
-<pre>
-<code class="language-r hljs">
-
-</code>
-</pre>
-</div>
-</details>
-</div>
 
 # Introduction
 
