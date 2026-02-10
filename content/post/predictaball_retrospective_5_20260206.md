@@ -1562,9 +1562,10 @@ If I ever decide to pick this up again I have two further avenues for exploratio
   2. Data driven: Using a neural network
 
 The particle filters have been hindered by my naive application, and have performed quite well in spite of some model mispecifcations.
-If I can get the states updating smoothly, without updating teams who aren't playing, and PMMH working well, then I think these models could be quite accurate.
+If I can get the states updating smoothly without updating teams who aren't playing (probably by implementing a [guided filter](https://particles-sequential-monte-carlo-in-python.readthedocs.io/en/latest/notebooks/advanced_tutorial_ssm.html#Automatic-definition-of-FeynmanKac-objects)), and PMMH working well, then I think these models could be quite accurate.
 I value having a formal probabilistic specification which provides uncertainty estimates and I appreciate the conciseness of the models - they are completely defined by 2 priors and a likelihood function - and the fact that the rating update is abstracted away entirely.
 However, the simple Elo rating system performs so well that it begs for additional attention.
 The EA model should have been tested with a Poisson outcome for a start, and a neural network replacing the hardcoded rating and prediction functions will be far more flexible and scale far better to new leagues and sports.
+
 
 Watch this space...
